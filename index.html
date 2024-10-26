@@ -1,188 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Francisco Sousa - Software Developer</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f9;
-      }
-      .container {
-        max-width: 800px;
-        margin: auto;
-        padding: 20px;
-      }
-      h1,
-      h2,
-      h3 {
-        color: #555;
-      }
-      .contact-info {
-        margin: 10px 0;
-        font-size: 0.9em;
-      }
-      .section {
-        margin-bottom: 20px;
-      }
-      .section h2 {
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 5px;
-      }
-      a {
-        color: #1e90ff;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
+        /* General body and container styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2b2b55; /* Dark and happy purple/blue */
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+        }
+        
+        /* Title styling */
+        h1 {
+            font-size: 2.5em;
+            margin: 0.2em 0;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 0.2em 0 1.5em;
+        }
+
+        /* Button styling */
+        .button-group button {
+            font-size: 1.1em;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4a4aed;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s;
+        }
+        .button-group button:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+            background-color: #5e5eff;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <header>
         <h1>Francisco Sousa</h1>
-        <p>
-          <strong>Software Developer</strong> | Augmented Reality | Graphics
-          Engines | Performance-Critical Applications
-        </p>
-        <p class="contact-info">
-          <strong>Email:</strong>
-          <a href="mailto:franciscoantonio314@gmail.com"
-            >franciscoantonio314@gmail.com</a
-          >
-          | <strong>Phone:</strong> +351 916 305 288 |
-          <strong>LinkedIn:</strong>
-          <a href="https://www.linkedin.com/in/franciscoalvesdesousa/"
-            >Francisco Sousa</a
-          >
-          | <strong>Portfolio:</strong>
-          <a href="https://franciscosousa.itch.io/">franciscosousa.itch.io</a>
-        </p>
-      </header>
-
-      <div class="section">
-        <h2>Profile</h2>
-        <p>
-          Experienced Software Developer with over three years of expertise in
-          augmented reality, graphics engines, and high-performance
-          applications. Proficient in <strong>C#, C++, Vulkan</strong>, and
-          advanced optimization techniques, I specialize in creating efficient
-          systems and innovative solutions. Known for my hands-on
-          problem-solving skills, I thrive in both independent and collaborative
-          environments, building systems that are both scalable and
-          high-performing.
-        </p>
-      </div>
-
-      <div class="section">
-        <h2>Professional Experience</h2>
-
-        <h3>Software Developer</h3>
-        <p><em>Wtvision, Lisbon</em> | May 2021 - Present</p>
-        <ul>
-          <li>
-            Achieved robust performance improvements in an augmented reality
-            field tracking application, reducing processing times and enhancing
-            real-time responsiveness.
-          </li>
-          <li>
-            Boosted the graphics engine’s functionality, ensuring optimized
-            frame rates and consistent output under high-performance demands
-            with DirectX and Vulkan integration.
-          </li>
-          <li>
-            Advanced field and player tracking capabilities through custom
-            vision algorithms and neural networks, achieving high accuracy and
-            stability.
-          </li>
-          <li>
-            Secured reliable broadcasting performance by managing Blackmagic
-            boards and integrating multithreading for continuous video
-            processing.
-          </li>
-          <li>
-            Enhanced project collaboration and minimized version control issues
-            through CI processes using GitLab.
-          </li>
-        </ul>
-
-        <h3>Assistant Manager</h3>
-        <p><em>Bean Gaming Café, Leicester</em> | Oct 2019 - May 2021</p>
-        <ul>
-          <li>
-            Directed daily operations, increasing customer satisfaction by 20%
-            through proactive leadership, efficient scheduling, and responsive
-            service strategies.
-          </li>
-        </ul>
-
-        <h3>Sales Assistant</h3>
-        <p><em>Ericeira Surf Shop, Lisbon</em> | Sep 2017 - Sep 2018</p>
-        <ul>
-          <li>
-            Consistently exceeded sales targets by delivering exceptional
-            customer service, fostering brand loyalty, and enhancing customer
-            experience.
-          </li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>Technical Skills</h2>
-        <p>
-          <strong>Languages & Tools:</strong> C#, C++, Vulkan, OpenCV, OpenGL,
-          XAML/WPF, Git
-        </p>
-        <p>
-          <strong>Core Skills:</strong> Optimization, multithreading, memory
-          management, CI/CD processes
-        </p>
-        <p>
-          <strong>Software & Technologies:</strong> Blackmagic boards, GitLab,
-          DirectX, SFML, GLFW
-        </p>
-      </div>
-
-      <div class="section">
-        <h2>Personal Projects</h2>
-        <h3>Personal Graphics/Game Engine</h3>
-        <p>
-          Developed a high-performance graphics engine from scratch using C++,
-          OpenGL, OpenCV, and SFML. This project emphasizes efficient memory
-          usage and processing speed, building on and surpassing the efficiency
-          of previous university projects.
-        </p>
-      </div>
-
-      <div class="section">
-        <h2>Education</h2>
-        <ul>
-          <li>
-            <strong>BSc (Hons) Computer Games Programming</strong> - De Montfort
-            University, UK (2018 - 2021)
-          </li>
-          <li>
-            <strong>Game Design Course</strong> - World Academy, Portugal (2016
-            - 2017)
-          </li>
-          <li>
-            <strong>Musical Production & Technology</strong> - Escola
-            Profissional de Imagem, Portugal (2013 - 2016)
-          </li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>Languages</h2>
-        <p><strong>Portuguese:</strong> Native</p>
-        <p><strong>English:</strong> Fluent</p>
-      </div>
+        <p>Software Developer</p>
+        
+        <div class="button-group">
+            <button onclick="location.href='#about'">About</button>
+            <button onclick="location.href='#projects'">Projects</button>
+            <button onclick="location.href='#contacts'">Contacts</button>
+        </div>
     </div>
-  </body>
+</body>
 </html>
