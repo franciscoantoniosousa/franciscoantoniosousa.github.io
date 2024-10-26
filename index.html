@@ -173,27 +173,54 @@
         }
 
         /* Projects Section */
-        .project {
+       .project {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 10px 0; /* Space between projects */
+            /* Use flexbox for layout */
+            justify-content: space-between;
+            /* Space between image and details */
+            margin: 10px auto;
+            /* Center project */
+            padding: 10px;
+            border-bottom: 1px solid #4C566A;
+            /* Divider */
+            width: 90%;
+            /* Adjusted width for better centering */
         }
 
-        .project-title {
+          .project-left {
+            flex: 0 0 30%;
+            /* Fixed width for time */
+            text-align: left;
+            color: #88C0D0;
+            /* Time color */
+        }
+
+           /* Add styles for the project images */
+        .project-img {
+            min-width: 70px;
+            /* Set a fixed width */
+            width: 70%;
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 5px;
+            /* Optional: add rounded corners */
+        }
+        
+        .project-details {
+            flex: 1;
+            /* Take remaining space */
+            text-align: left;
+        }
+        
+        .tech-label {
+            display: block;
+            /* Ensure it takes a new line */
+            margin-top: 10px;
+            /* Add some space above */
             font-weight: bold;
-            font-size: 1.4em;
-            margin-bottom: 5px; /* Space below title */
-        }
-
-        .project-description {
-            margin-bottom: 10px; /* Space below description */
-        }
-
-        /* Languages List */
-        .project-languages {
-            list-style-type: disc; /* Bullet points for languages */
-            padding-left: 20px; /* Indent for list */
+            /* Make it bold */
+            color: #88C0D0;
+            /* Match the color with the theme */
         }
 
         /* Contact styling */
@@ -287,40 +314,26 @@
             </div>
         </div>
 
-        <!-- Projects Section -->
-        <div id="projects" class="balloon subsection">
-            <h2 class="subsection-title">Projects</h2>
+        <!-- Projects Section -->        
+         <div id="projects" class="balloon subsection">
+            <h2 class="subsection-title">Side Projects</h2>
             <div class="project">
-                <div class="project-title">Project Title 1</div>
-                <div class="project-description">Description of the project.</div>
-                <img src="project1.png" alt="Project 1" style="width: 100%;">
-                <ul class="project-languages">
-                    <li>Language 1</li>
-                    <li>Language 2</li>
-                    <li>Language 3</li>
-                </ul>
+                <div class="project-left">
+                    <a href="https://github.com/franciscoantoniosousa/Sunflower" target="_blank">
+                        <img src="images/engine.png" alt="engine" class="project-img">
+                    </a>
+                </div>
+                <div class="project-details">
+                    <strong>Game Engine - Sunflower</strong><br>
+                    <small>
+                        Peer to peer microservice written in Go, utilizing TCP transport methods for files.
+                        <br> Currently work in progress...
+                    </small>
+                    <!-- Moved technologies to the bottom -->
+                    <small class="tech-label">Technologies: C++, OpenGL, OpenCV, SFML, GLFW, SFML, ImGUI, spdlog</small> <!-- Added class for styling -->
+                </div>
             </div>
-            <div class="project">
-                <div class="project-title">Project Title 2</div>
-                <div class="project-description">Description of the project.</div>
-                <img src="project2.png" alt="Project 2" style="width: 100%;">
-                <ul class="project-languages">
-                    <li>Language 1</li>
-                    <li>Language 2</li>
-                    <li>Language 3</li>
-                </ul>
-            </div>
-            <div class="project">
-                <div class="project-title">Project Title 3</div>
-                <div class="project-description">Description of the project.</div>
-                <img src="project3.png" alt="Project 3" style="width: 100%;">
-                <ul class="project-languages">
-                    <li>Language 1</li>
-                    <li>Language 2</li>
-                    <li>Language 3</li>
-                </ul>
-            </div>
-        </div>
+             </div>
 
         <!-- Contact Section -->
         <div id="contacts" class="balloon subsection contact-section">
