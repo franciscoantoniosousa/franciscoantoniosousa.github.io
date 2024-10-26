@@ -13,41 +13,48 @@
             color: #fff;
             scroll-behavior: smooth; /* Enables smooth scrolling */
         }
-        
-        .container {
+
+        /* Home Section Styling */
+        .home {
             text-align: center;
             padding: 50px 20px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            position: relative; /* Add position relative to the container */
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.5s ease; /* Fade transition */
+        }
+
+        /* Hidden state for fade effect */
+        .fade-out {
+            opacity: 0; /* Make element invisible */
         }
 
         /* Header styling */
         .header-info {
-            margin-bottom: 20px; /* Space between header info and buttons */
+            margin-bottom: 20px;
         }
 
         .header-title {
             font-size: 2.5em;
             margin: 0.2em 0;
-            display: inline; /* Allow titles to be inline */
+            display: inline;
         }
 
         .header-subtitle {
             font-size: 1.2em;
-            margin-left: 10px; /* Space between title and subtitle */
-            display: inline; /* Allow subtitle to be inline */
+            margin-left: 10px;
+            display: inline;
         }
 
-        /* Button styling */
         .button-group {
-            display: flex; /* Use flexbox for button alignment */
-            justify-content: center; /* Center buttons */
-            gap: 10px; /* Space between buttons */
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
-        
+
         .button-group button {
             font-size: 1.1em;
             padding: 10px 20px;
@@ -56,112 +63,121 @@
             background-color: #4a4aed;
             color: #fff;
             cursor: pointer;
-            transition: background-color 0.3s; /* Only background color transition */
-        }
-        
-        .button-group button:hover {
-            background-color: #5e5eff; /* Change background on hover */
+            transition: background-color 0.3s;
         }
 
-        /* Full-page About section styling */
+        .button-group button:hover {
+            background-color: #5e5eff;
+        }
+
+        /* Fixed Mini Header */
+        .mini-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px 20px;
+            background-color: rgba(43, 43, 85, 0.9);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 100;
+        }
+
+        /* About section */
         #about {
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             padding: 0 20px;
+            opacity: 0; /* Initially invisible */
+            transition: opacity 0.5s ease; /* Fade transition */
         }
-        
+
         /* Balloon styling */
         .balloon {
-            background-color: rgba(0, 0, 0, 0.6); /* Darker, semi-transparent balloon */
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 30px;
             border-radius: 15px;
-            max-width: 90%; /* Use most of the page width */
+            max-width: 90%;
             width: 100%;
             text-align: left;
         }
-        
+
         .balloon h2 {
             font-size: 2em;
             color: #fff;
             margin-bottom: 20px;
-            border-bottom: 2px solid #ddd; /* Line under About title */
-            padding-bottom: 10px; /* Space below title */
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
         }
-        
-        /* Subsection styling for Education and Work */
+
+        /* Subsection styling */
         .section-title {
             font-size: 1.5em;
             margin-top: 20px;
             color: #ddd;
-            position: relative; /* Position for the line below */
         }
-        
+
         .section-title::after {
             content: '';
             display: block;
-            width: 50%; /* Line width under title */
-            height: 2px; /* Line height */
-            background: #ddd; /* Line color */
-            margin-top: 5px; /* Space between title and line */
+            width: 50%;
+            height: 2px;
+            background: #ddd;
+            margin-top: 5px;
         }
-        
+
         .experience {
             margin: 10px 0;
         }
-        
+
         .experience h3 {
             margin: 5px 0;
             color: #ccc;
             font-size: 1.2em;
         }
-        
+
         .experience p {
             font-size: 1em;
             line-height: 1.5;
             color: #bbb;
         }
-
-        /* Fixed position for header elements when scrolled */
-        .fixed-header {
-            position: fixed;
-            top: 0; /* Align header info to the top */
-            left: 0; /* Align header info to the top left */
-            right: 0; /* Allow buttons to align to the top right */
-            display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space out items */
-            padding: 10px 20px; /* Add some padding */
-            background-color: rgba(43, 43, 85, 0.9); /* Semi-transparent background for readability */
-            z-index: 10; /* Ensure it stays above other elements */
-        }
-
-        .fixed-header .header-info {
-            margin: 0; /* Remove margin in fixed state */
-        }
-
-        .fixed-header .button-group {
-            margin: 0; /* Remove margin in fixed state */
-        }
     </style>
 </head>
 <body>
 
-    <!-- Main Presentation Area -->
-    <div class="container">
-        <div class="header-info" id="header-info">
+    <!-- Mini Header (Hidden by Default) -->
+    <div id="mini-header" class="mini-header">
+        <div class="header-info">
             <span class="header-title">Francisco Sousa</span>
             <span class="header-subtitle">Software Developer</span>
         </div>
-        
-        <div class="button-group" id="button-group">
+        <div class="button-group">
             <button onclick="scrollToSection('about')">About</button>
             <button onclick="location.href='#projects'">Projects</button>
             <button onclick="location.href='#contacts'">Contacts</button>
         </div>
     </div>
 
-    <!-- Full-Screen About Section -->
+    <!-- Home Section -->
+    <div class="home" id="home">
+        <div class="header-info">
+            <span class="header-title">Francisco Sousa</span>
+            <span class="header-subtitle">Software Developer</span>
+        </div>
+        
+        <div class="button-group">
+            <button onclick="scrollToSection('about')">About</button>
+            <button onclick="location.href='#projects'">Projects</button>
+            <button onclick="location.href='#contacts'">Contacts</button>
+        </div>
+    </div>
+
+    <!-- About Section -->
     <div id="about" class="section">
         <div class="balloon">
             <h2>About Me</h2>
@@ -169,17 +185,14 @@
             <!-- Education Section -->
             <div class="education">
                 <h3 class="section-title">Education</h3>
-                
                 <div class="experience">
                     <h3>BSc in Computer Games Programming</h3>
                     <p>De Montfort University, UK (2018 - 2021)</p>
                 </div>
-                
                 <div class="experience">
                     <h3>Game Design Course</h3>
                     <p>World Academy, Portugal (2016 - 2017)</p>
                 </div>
-
                 <div class="experience">
                     <h3>Musical Production & Technology</h3>
                     <p>Escola Profissional de Imagem, Portugal (2013 - 2016)</p>
@@ -189,17 +202,14 @@
             <!-- Work Experience Section -->
             <div class="work-experience">
                 <h3 class="section-title">Work Experience</h3>
-                
                 <div class="experience">
                     <h3>Software Developer</h3>
                     <p>Wtvision, Lisbon (May 2021 - Present)</p>
                 </div>
-                
                 <div class="experience">
                     <h3>Assistant Manager</h3>
                     <p>Bean Gaming Café, Leicester (Oct 2019 - May 2021)</p>
                 </div>
-
                 <div class="experience">
                     <h3>Sales Assistant</h3>
                     <p>Ericeira Surf Shop, Lisbon (Sep 2017 - Sep 2018)</p>
@@ -209,67 +219,39 @@
     </div>
 
     <script>
-        // Get header elements
-        const headerInfo = document.getElementById('header-info');
-        const buttonGroup = document.getElementById('button-group');
+        const home = document.getElementById('home');
         const aboutSection = document.getElementById('about');
-
-        // Track scrolling behavior
+        const miniHeader = document.getElementById('mini-header');
+        
         window.addEventListener('scroll', () => {
-            const aboutPosition = aboutSection.getBoundingClientRect().top;
+            const scrollY = window.scrollY;
             const viewportHeight = window.innerHeight;
 
-            // Check if the About section is in view
-            if (aboutPosition <= viewportHeight) {
-                // Fix the header and button group at the top
-                const fixedHeader = document.createElement('div');
-                fixedHeader.className = 'fixed-header';
-                fixedHeader.innerHTML = ` 
-                    <div class="header-info">${headerInfo.innerHTML}</div>
-                    <div class="button-group">${buttonGroup.innerHTML}</div>
-                `;
-                document.body.insertBefore(fixedHeader, document.body.firstChild);
-                headerInfo.style.display = 'none'; // Hide original header info
-                buttonGroup.style.display = 'none'; // Hide original button group
-            } else if (window.scrollY === 0) {
-                // Show original header info and button group when at the top
-                const fixedHeaders = document.querySelector('.fixed-header');
-                if (fixedHeaders) {
-                    fixedHeaders.remove(); // Remove fixed header if present
-                }
-                headerInfo.style.display = 'block'; // Show original header info
-                buttonGroup.style.display = 'flex'; // Show original button group
+            // Detect if the home section is leaving the top view
+            if (scrollY > 50) {
+                home.classList.add('fade-out');
+                miniHeader.style.opacity = 1;
+            } else {
+                home.classList.remove('fade-out');
+                miniHeader.style.opacity = 0;
+            }
+
+            // About section fading in/out
+            const aboutPosition = aboutSection.getBoundingClientRect().top;
+            if (aboutPosition <= viewportHeight && aboutPosition >= 0) {
+                aboutSection.style.opacity = '1';
+            } else if (aboutPosition > viewportHeight && scrollY < home.offsetTop) {
+                aboutSection.style.opacity = '0';
             }
         });
 
-        // Custom scroll function with easing
+        // Custom scroll function for smooth scrolling
         function scrollToSection(sectionId) {
             const targetSection = document.getElementById(sectionId);
-            const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY;
-            const startPosition = window.scrollY;
-            const distance = targetPosition - startPosition;
-            const duration = 1500; // Duration of scroll in milliseconds (increased duration for slower scroll)
-            let startTime = null;
-
-            // Animation function
-            function animation(currentTime) {
-                if (startTime === null) startTime = currentTime;
-                const timeElapsed = currentTime - startTime;
-                const progress = Math.min(timeElapsed / duration, 1); // Ensure progress doesn't exceed 1
-
-                // Easing function: easeInOutCubic
-                const easing = progress < 0.5 
-                    ? 4 * progress * progress * progress 
-                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-                window.scrollTo(0, startPosition + distance * easing);
-
-                if (timeElapsed < duration) {
-                    requestAnimationFrame(animation);
-                }
-            }
-
-            requestAnimationFrame(animation);
+            window.scrollTo({
+                top: targetSection.offsetTop,
+                behavior: 'smooth'
+            });
         }
     </script>
 </body>
