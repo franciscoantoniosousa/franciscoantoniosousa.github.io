@@ -86,17 +86,27 @@
         .balloon h2::after {
             content: '';
             display: block;
-            width: 50px; /* Width of the line */
+            width: 100px; /* Increase the width of the line */
             height: 3px; /* Height of the line */
             background-color: #4a4aed; /* Line color */
             margin-top: 10px; /* Space between title and line */
         }
-        
+
         /* Subsection styling for Education and Work */
         .section-title {
             font-size: 1.5em;
             margin-top: 20px;
-            color: #ddd;
+            color: #ccc; /* Lighter color for secondary titles */
+            position: relative; /* Positioning for the line */
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px; /* Smaller width for the secondary title line */
+            height: 2px; /* Height of the line */
+            background-color: #5e5eff; /* Line color for secondary titles */
+            margin-top: 5px; /* Space between title and line */
         }
         
         .experience {
