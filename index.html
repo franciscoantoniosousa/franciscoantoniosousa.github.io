@@ -138,7 +138,7 @@
         </div>
         
         <div class="button-group" id="button-group">
-            <button onclick="document.getElementById('about').scrollIntoView()">About</button>
+            <button onclick="scrollToSection('about')">About</button>
             <button onclick="location.href='#projects'">Projects</button>
             <button onclick="location.href='#contacts'">Contacts</button>
         </div>
@@ -217,6 +217,36 @@
                 buttonGroup.classList.remove('fixed');
             }
         });
+
+        // Custom scroll function with easing
+        function scrollToSection(sectionId) {
+            const targetSection = document.getElementById(sectionId);
+            const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY;
+            const startPosition = window.scrollY;
+            const distance = targetPosition - startPosition;
+            const duration = 1000; // Duration of scroll in milliseconds
+            let startTime = null;
+
+            // Animation function
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1); // Ensure progress doesn't exceed 1
+
+                // Easing function: easeInOutCubic
+                const easing = progress < 0.5 
+                    ? 4 * progress * progress * progress 
+                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+                window.scrollTo(0, startPosition + distance * easing);
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            requestAnimationFrame(animation);
+        }
     </script>
 </body>
 </html>
