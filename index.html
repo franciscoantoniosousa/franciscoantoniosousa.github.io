@@ -3,352 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francisco Sousa - Software Developer</title>
+    <title>My Portfolio</title>
     <style>
-        /* General body styling */
         body {
             font-family: Arial, sans-serif;
+            background-color: #2E3440; /* Nord background */
+            color: #D8DEE9; /* Nord text color */
+            line-height: 1.6;
             margin: 0;
-            background-color: #2b2b55; /* Dark purple/blue */
-            color: #fff;
-            scroll-behavior: smooth; /* Enables smooth scrolling */
-            padding: 20px; /* Added padding for margins */
-            font-size: 1.1em; /* Increased overall font size */
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
         }
 
-        /* Sticky Header styling */
-        .persistent-header {
-            position: sticky; /* Keep it fixed at the top */
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px 20px;
-            background-color: rgba(43, 43, 85, 0.9);
+        .navbar {
+            padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            opacity: 1; /* Always visible */
+            margin: 0;
+            position: relative; /* Added for positioning */
         }
 
-        .persistent-header .title {
-            font-size: 1.5em;
-            cursor: pointer; /* Change cursor to pointer */
+        .navbar a {
+            color: #88C0D0; /* Link color */
+            margin: 0 15px;
+            text-decoration: none;
         }
 
-        .persistent-button-group {
-            display: flex;
-            gap: 10px;
-            margin-right: 10px;
-        }
-
-        .persistent-button-group button {
-            padding: 8px 16px;
-            font-size: 1em;
-            background-color: #4a4aed;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .persistent-button-group button:hover {
-            background-color: #5e5eff;
-        }
-
-        /* Home Section Styling */
         .container {
+            max-width: 1200px; /* Increased max-width for better centering */
+            margin: auto; /* Center the container */
+            padding: 20px;
+        }
+
+        .header {
+            padding: 430px 0; /* Adjusted padding */
             text-align: center;
-            padding: 20px; /* Reduced padding to bring sections closer */
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            opacity: 1;
-            transition: opacity 1s ease; /* Fade-out timing */
+            border-bottom: 2px solid #88C0D0; /* Added bottom border */
         }
 
-        .header-info {
-            margin-bottom: 10px; /* Reduced margin */
+        .header h1 {
+            font-size: 4em; /* Increased font size */
+            color: #D8DEE9; /* Changed text color */
         }
 
-        .header-title {
-            font-size: 2.5em;
-            margin: 0.2em 0;
-            display: block; /* Changed to block for line breaks */
+        .header h2 {
+            font-size: 2em; /* Increased font size */
+            color: #88C0D0; /* Changed subtitle color */
         }
 
-        .header-subtitle {
-            font-size: 1.2em;
-            display: block; /* Changed to block for line breaks */
+        .header p {
+            font-size: 1.2em; /* Added paragraph styling */
+            color: #D8DEE9; /* Changed text color */
+            margin-top: 10px; /* Added margin */
         }
 
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px; /* Added spacing between subtitle and buttons */
-        }
-
-        .button-group img {
-            width: 50px; /* Set image size for logo buttons */
-            cursor: pointer;
-        }
-
-        /* Main Section (Combined) */
-        .section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px; /* Consistent padding */
-            padding-top: 60px; /* Reduced top padding to avoid overlap with header */
-            margin-top: 0; /* Removed top margin to bring sections closer */
-            opacity: 0; /* Initially hidden */
-            transition: opacity 1s ease; /* Changed duration to 1 second for fade transition */
-        }
-
-        .section.visible {
-            opacity: 1; /* Fully visible */
-        }
-
-        /* Balloon styling */
-        .balloon {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 90%;
-            width: 100%;
-            text-align: left;
-            margin-top: 10px; /* Space between balloons */
-        }
-
-        .balloon h2 {
-            font-size: 2em;
-            color: #fff;
-            margin-bottom: 10px; /* Reduced margin */
-        }
-
-        /* Subsection styling */
-        .subsection {
-            margin-top: 10px; /* Reduced space between subsections */
-        }
-
-        .subsection-title {
-            font-size: 1.5em;
-            margin-top: 20px;
-            color: #ddd;
-            position: relative;
-            padding-bottom: 10px; /* Added padding for space */
-        }
-
-        .subsection-title::after {
-            content: '';
-            display: block;
-            width: 100%; /* Make line width same as title */
-            height: 2px; /* Fixed height for the line */
-            background: #4a4aed; /* Changed to specified color */
-            position: absolute;
-            bottom: -5px; /* Position it just below the title */
-            left: 0; /* Align it to the left */
+        .bio,
+        .projects,
+        .tech-stack,
+        .resume {
+            margin: 10px auto 50px; /* Center sections */
+            padding: 15px;
+            background-color: rgba(31, 35, 43, .4); /* Added opacity */
+            border-radius: 8px;
+            width: 90%; /* Adjusted width for better centering */
         }
 
         .experience {
-            margin: 10px 0; /* Reduced space between experiences */
-            margin-top: 5px; /* Added small top margin */
+            display: flex;
+            justify-content: space-between;
+            margin: 10px auto; /* Center experience */
+            padding: 10px;
+            border-bottom: 1px solid #4C566A; /* Divider */
+            width: 90%; /* Adjusted width for better centering */
         }
 
-        .experience h3 {
-            margin: 5px 0;
-            color: #ccc;
-            font-size: 1.2em;
+        .experience:last-child {
+            border-bottom: none; /* Remove last border */
         }
 
-        .experience p {
-            font-size: 1em;
-            line-height: 1.5;
-            color: #bbb;
+        .experience-time {
+            flex: 0 0 30%; /* Fixed width for time */
+            text-align: left;
+            color: #88C0D0; /* Time color */
         }
 
-        /* Projects Section */
+        .experience-details {
+            flex: 1; /* Take remaining space */
+            text-align: left;
+        }
+
         .project {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space between image and details */
+            margin: 10px auto; /* Center project */
+            padding: 10px;
+            border-bottom: 1px solid #4C566A; /* Divider */
+            width: 90%; /* Adjusted width for better centering */
+        }
+
+        .project:last-child {
+            border-bottom: none; /* Remove last border */
+        }
+
+        .project img {
+            flex: 0 0 30%; /* Fixed width for image */
+            border-radius: 5px;
+        }
+
+        .project-details {
+            flex: 1; /* Take remaining space */
+            text-align: left;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background-color: #4c566a3d; /* Skill background */
+            padding: 10px;
+            border-radius: 5px;
+            color: #D8DEE9; /* Skill text color */
+            font-weight: bold;
+        }
+
+        .skill:hover {
+            box-shadow: 0 0 10px #03cdff;
+            border-color: 0 0 10px #03cdff; /* Glow effect */
+        }
+
+        .title {
+            margin-top: 2rem;
+            margin-bottom: 0rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 10px 0; /* Space between projects */
+            justify-content: center;
         }
 
-          /* Add styles for the project images */
-        .project-img {
-            min-width: 70px;
-            /* Set a fixed width */
-            width: 70%;
-            height: auto;
-            /* Maintain aspect ratio */
-            border-radius: 5px;
-            /* Optional: add rounded corners */
+        .engineer {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            height: 20rem;
+            margin-top: 8rem;
+
+            img {
+                object-fit: cover;
+                height: 100%;
+            }
         }
 
-        .project-title {
-            font-weight: bold;
-            font-size: 1.4em;
-            margin-bottom: 5px; /* Space below title */
+        p {
+            margin-top: 10rem;
+            font-style: italic;
+            text-align: center;
+            padding: 0 1rem;
         }
 
-        .project-description {
-            margin-bottom: 10px; /* Space below description */
-        }
-
-        /* Languages List */
-        .project-languages {
-            list-style-type: disc; /* Bullet points for languages */
-            padding-left: 20px; /* Indent for list */
-        }
-
-        /* Contact styling */
-        .contact-form {
-            flex: 1; /* Form takes full width */
-        }
-
-        /* Form styling */
-        input, textarea {
+        .colaborations {
+            background-image: linear-gradient(135deg, rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%);
+            height: 3.5rem;
+            position: relative;
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #2b2b55; /* Match with background color */
-            color: #fff;
+            margin: 0rem 0 5rem 0;
+            padding-left: 0 !important;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            img {
+                object-fit: cover;
+                height: 100%;
+                width: auto;
+                filter: brightness(0) invert(1);
+            }
         }
 
-        textarea {
-            resize: none; /* Disable resizing */
-            height: 100px; /* Set a fixed height */
-            overflow-y: auto; /* Enable vertical scrolling */
+        .contacts {
+            background-image: linear-gradient(135deg, rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%);
+            height: 26rem;
+            margin-top: 10rem;
+            position: relative;
+            width: 100%;
+            padding-left: 0 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
 
-        input[type="submit"] {
-            background-color: #4a4aed;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .contacts-links {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 0 1rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            a {
+                font-family: 'Roboto', sans-serif;
+                text-decoration: none;
+                color: inherit;
+            }
         }
 
-        input[type="submit"]:hover {
-            background-color: #5e5eff;
+        .contacts-text {
+            text-align: center;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        /* Add styles for the project images */
+        .project-img {
+            min-width: 70px; /* Set a fixed width */
+            width: 70%; /* Maintain aspect ratio */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: add rounded corners */
+        }
+
+        .tech-label {
+            display: block; /* Ensure it takes a new line */
+            margin-top: 10px; /* Add some space above */
+            font-weight: bold; /* Make it bold */
+            color: #88C0D0; /* Match the color with the theme */
+        }
+
+        .navbar-menu {
+            display: flex; /* Show menu items in a row */
+            gap: 15px; /* Space between links */
+        }
+
+        .navbar-toggle {
+            display: none; /* Hide toggle by default */
+            cursor: pointer; /* Pointer cursor for toggle */
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none; /* Hide menu items on small screens */
+                flex-direction: column; /* Stack items vertically */
+                position: absolute; /* Positioning for dropdown */
+                top: 50px; /* Position below navbar */
+                right: 0; /* Align to the right */
+                background-color: #2E3440; /* Match background */
+                width: 100%; /* Full width */
+                z-index: 1; /* Ensure it appears above other content */
+            }
+
+            .navbar-menu.active {
+                display: flex; /* Show menu when active */
+            }
+
+            .navbar-toggle {
+                display: block; /* Show toggle on small screens */
+            }
+        }
+
+        .scroll-to-top {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Distance from bottom */
+            right: 20px; /* Distance from right */
+            background-color: #2E3440; /* Background color */
+            color: white; /* Text color */
+            border: none; /* No border */
+            border-radius: 50%; /* Circular button */
+            width: 50px; /* Width */
+            height: 50px; /* Height */
+            cursor: pointer; /* Pointer cursor */
+            align-items: center; /* Center content */
+            justify-content: center; /* Center content */
+            display: flex; /* Flexbox for centering */
+            z-index: 1;
         }
     </style>
 </head>
 <body>
-
-    <!-- Persistent Header -->
-    <div class="persistent-header">
-        <div class="title">Francisco Sousa</div>
-        <div class="persistent-button-group">
-            <button onclick="scrollToSection('about')">About</button>
-            <button onclick="scrollToSection('work-experience')">Work Experience</button>
-            <button onclick="scrollToSection('education')">Education</button>
-            <button onclick="scrollToSection('projects')">Projects</button>
-            <button onclick="scrollToSection('contacts')">Contact</button>
+    <div class="navbar">
+        <div class="navbar-toggle">☰</div>
+        <div class="navbar-menu">
+            <a href="#projects">Projects</a>
+            <a href="#tech-stack">Tech Stack</a>
+            <a href="#bio">About Me</a>
+            <a href="#contact">Contact</a>
+            <a href="#resume">Resume</a>
         </div>
     </div>
 
-    <!-- Home Section -->
-    <div id="container" class="container">
-        <div class="header-info">
-            <span class="header-title">Francisco Sousa</span>
-            <span class="header-subtitle">Software Developer</span>
-        </div>
-        <div class="button-group">
-            <img src="logo1.png" alt="Logo 1" onclick="window.open('https://link-to-logo1.com', '_blank')">
-            <img src="logo2.png" alt="Logo 2" onclick="window.open('https://link-to-logo2.com', '_blank')">
-        </div>
-    </div>
+    <div class="container">
+        <header class="header">
+            <h1>Your Name</h1>
+            <h2>Web Developer</h2>
+            <p>Welcome to my portfolio! I am a passionate developer dedicated to building user-friendly web applications.</p>
+        </header>
 
-    <!-- Main Section -->
-    <div id="main-section" class="section">
-        <!-- About Section -->
-        <div id="about" class="balloon subsection">
-            <h2 class="subsection-title">About Me</h2>
-            <p>I am a passionate software developer with experience in various technologies...</p>
-        </div>
+        <section id="bio" class="bio">
+            <h2>About Me</h2>
+            <p>I'm a web developer with a background in computer science. I love creating efficient and visually appealing applications.</p>
+            <p>In my spare time, I enjoy hiking, reading, and exploring new technologies.</p>
+        </section>
 
-        <!-- Work Experience Section -->
-        <div id="work-experience" class="balloon subsection">
-            <h2 class="subsection-title">Work Experience</h2>
-            <div class="experience">
-                <h3>Intern at ABC Inc</h3>
-                <p>Assisted in software development and testing.</p>
-            </div>
-        </div>
-
-        <!-- Education Section -->
-        <div id="education" class="balloon subsection">
-            <h2 class="subsection-title">Education</h2>
-            <div class="experience">
-                <h3>Bachelor of Science in Computer Science</h3>
-                <p>University of Lisbon, Portugal (2016 - 2020)</p>
-            </div>
-            <div class="experience">
-                <h3>Professional Development in Software Engineering</h3>
-                <p>Instituto de Artes de Albufeira, Portugal (2014 - 2016)</p>
-            </div>
-        </div>
-
-        <!-- Projects Section -->
-        <div id="projects" class="balloon subsection">
-            <h2 class="subsection-title">Projects</h2>
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
             <div class="project">
-                <div >
-                    <a href="https://github.com/thatsBruno/p2p-golang" target="_blank">                        
-                        <img src="images/engine.png" alt="Project 1" class="project-img">   
-                    </a>             
+                <img class="project-img" src="images/engine.png" alt="Project 1">
+                <div class="project-details">
+                    <h3>Game Engine - Sunflower</h3>
+                    <p>Gaming Engine.</p>
+                    <span class="tech-label">Technologies: C++, OpenGL, OpenCV, GLFW, GLM, SFML, ImGUi</span>
                 </div>
-                <div class="project-title">Game Engine</div>
-                <div class="project-description">Description of the project.</div>
-                <div class="project-languages">Technologies: C++, OpenGL, OpenCV, ImGUI, GLM, SFML</div>
-        </div>
-              </div>
-
-        <!-- Contact Section -->
-        <div id="contacts" class="balloon subsection contact-section">
-            <h2 class="subsection-title">Contact Me</h2>
-            <div class="contact-form">
-                <form action="#" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <input type="submit" value="Send Message">
-                </form>
             </div>
-        </div>
+            <div class="project">
+                <img class="project-img" src="project2.jpg" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2: Task Tracker</h3>
+                    <p>An interactive task management tool to help users stay organized.</p>
+                    <span class="tech-label">Technologies: React, Redux, Firebase</span>
+                </div>
+            </div>
+            <div class="project">
+                <img class="project-img" src="project3.jpg" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3: Personal Blog</h3>
+                    <p>A personal blog platform where users can share their thoughts and experiences.</p>
+                    <span class="tech-label">Technologies: HTML, CSS, JavaScript</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech-stack" class="tech-stack">
+            <h2>Tech Stack</h2>
+            <div class="skills">
+                <div class="skill">JavaScript</div>
+                <div class="skill">React</div>
+                <div class="skill">Node.js</div>
+                <div class="skill">CSS</div>
+                <div class="skill">HTML</div>
+            </div>
+        </section>
+
+        <section id="resume" class="resume">
+            <h2>Resume</h2>
+            <p>You can view my resume <a href="resume.pdf" target="_blank">here</a>.</p>
+        </section>
+
+        <footer id="contact" class="contacts">
+            <h2>Contact Me</h2>
+            <div class="contacts-text">Feel free to reach out for collaborations or opportunities!</div>
+            <div class="contacts-links">
+                <a href="mailto:yourname@example.com">Email</a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+            </div>
+        </footer>
     </div>
+
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
 
     <script>
-        // Function to scroll to a section smoothly
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+        // Navbar Toggle
+        document.addEventListener("DOMContentLoaded", function() {
+            const navbarToggle = document.querySelector('.navbar-toggle');
+            const navbarMenu = document.querySelector('.navbar-menu');
 
-        // Fade in/out effect for the main section
-        const mainSection = document.getElementById('main-section');
+            navbarToggle.addEventListener('click', function() {
+                navbarMenu.classList.toggle('active');
+            });
+
+            // Close the menu when a link is clicked
+            navbarMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navbarMenu.classList.remove('active');
+                });
+            });
+        });
+
+        // Scroll to Top Button
+        const scrollToTopButton = document.getElementById('scrollToTop');
 
         window.addEventListener('scroll', () => {
-            const homeSectionBottom = document.getElementById('container').getBoundingClientRect().bottom;
-            const viewportHeight = window.innerHeight;
-
-            // Check if the home section is completely out of view
-            if (homeSectionBottom < 0 && !mainSection.classList.contains('visible')) {
-                mainSection.classList.add('visible'); // Fade in
-            } else if (homeSectionBottom > viewportHeight && mainSection.classList.contains('visible')) {
-                mainSection.classList.remove('visible'); // Fade out
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopButton.style.display = "flex"; // Show button
+            } else {
+                scrollToTopButton.style.display = "none"; // Hide button
             }
+        });
+
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         });
     </script>
 </body>
