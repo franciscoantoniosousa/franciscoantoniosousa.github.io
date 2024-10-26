@@ -25,37 +25,42 @@
         }
 
         /* Header styling */
-        h1 {
+        .header-info {
+            margin-bottom: 20px; /* Space between header info and buttons */
+        }
+
+        .header-title {
             font-size: 2.5em;
             margin: 0.2em 0;
+            display: inline; /* Allow titles to be inline */
         }
-        p {
+
+        .header-subtitle {
             font-size: 1.2em;
-            margin: 0.2em 0 1.5em;
+            margin-left: 10px; /* Space between title and subtitle */
+            display: inline; /* Allow subtitle to be inline */
         }
 
         /* Button styling */
         .button-group {
-            margin-top: 20px; /* Space out buttons from header */
-            transition: transform 0.3s ease; /* Add smooth transition */
             display: flex; /* Use flexbox for button alignment */
             justify-content: center; /* Center buttons */
+            gap: 10px; /* Space between buttons */
         }
         
         .button-group button {
             font-size: 1.1em;
             padding: 10px 20px;
-            margin: 0 10px;
             border: none;
             border-radius: 8px;
             background-color: #4a4aed;
             color: #fff;
             cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s;
+            transition: background-color 0.3s; /* Only background color transition */
         }
+        
         .button-group button:hover {
-            transform: scale(1.1); /* Zoom effect on hover */
-            background-color: #5e5eff;
+            background-color: #5e5eff; /* Change background on hover */
         }
 
         /* Full-page About section styling */
@@ -72,85 +77,71 @@
             background-color: rgba(0, 0, 0, 0.6); /* Darker, semi-transparent balloon */
             padding: 30px;
             border-radius: 15px;
-            max-width: 90%; /* Occupies most of the page horizontally */
+            max-width: 90%; /* Use most of the page width */
             width: 100%;
             text-align: left;
-            margin: 0 auto; /* Center the balloon */
         }
         
         .balloon h2 {
             font-size: 2em;
             color: #fff;
             margin-bottom: 20px;
-            position: relative; /* Positioning for the line */
+            border-bottom: 2px solid #ddd; /* Line under About title */
+            padding-bottom: 10px; /* Space below title */
         }
-
-        .balloon h2::after {
-            content: '';
-            display: block;
-            width: 100px; /* Increase the width of the line */
-            height: 3px; /* Height of the line */
-            background-color: #4a4aed; /* Line color */
-            margin-top: 10px; /* Space between title and line */
-        }
-
+        
         /* Subsection styling for Education and Work */
         .section-title {
             font-size: 1.5em;
             margin-top: 20px;
-            color: #ccc; /* Lighter color for secondary titles */
-            position: relative; /* Positioning for the line */
+            color: #ddd;
+            position: relative; /* Position for the line below */
         }
-
+        
         .section-title::after {
             content: '';
             display: block;
-            width: 60px; /* Smaller width for the secondary title line */
-            height: 2px; /* Height of the line */
-            background-color: #5e5eff; /* Line color for secondary titles */
+            width: 50%; /* Line width under title */
+            height: 2px; /* Line height */
+            background: #ddd; /* Line color */
             margin-top: 5px; /* Space between title and line */
         }
         
         .experience {
             margin: 10px 0;
         }
+        
         .experience h3 {
             margin: 5px 0;
             color: #ccc;
             font-size: 1.2em;
         }
+        
         .experience p {
             font-size: 1em;
             line-height: 1.5;
             color: #bbb;
         }
 
-        /* Positioning the name and profession */
-        .header-info {
-            transition: transform 0.3s ease; /* Add smooth transition */
-            position: absolute; /* Initially absolute */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Center it */
-        }
-
         /* Fixed position for header elements when scrolled */
-        .fixed {
+        .fixed-header {
             position: fixed;
+            top: 0; /* Align header info to the top */
+            left: 0; /* Align header info to the top left */
+            right: 0; /* Allow buttons to align to the top right */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out items */
+            padding: 10px 20px; /* Add some padding */
+            background-color: rgba(43, 43, 85, 0.9); /* Semi-transparent background for readability */
             z-index: 10; /* Ensure it stays above other elements */
         }
 
-        .fixed .header-info {
-            top: 20px; /* Align header info to the top left */
-            left: 50%; /* Center header horizontally */
-            transform: translate(-50%, 0); /* Reset translation for fixed position */
+        .fixed-header .header-info {
+            margin: 0; /* Remove margin in fixed state */
         }
 
-        .fixed .button-group {
-            position: fixed;
-            top: 20px; /* Keep buttons in the top right corner */
-            right: 20px; /* Keep buttons in the top right corner */
-            transform: translateY(0);
+        .fixed-header .button-group {
+            margin: 0; /* Remove margin in fixed state */
         }
     </style>
 </head>
@@ -159,8 +150,8 @@
     <!-- Main Presentation Area -->
     <div class="container">
         <div class="header-info" id="header-info">
-            <h1>Francisco Sousa</h1>
-            <p>Software Developer</p>
+            <span class="header-title">Francisco Sousa</span>
+            <span class="header-subtitle">Software Developer</span>
         </div>
         
         <div class="button-group" id="button-group">
@@ -230,17 +221,24 @@
 
             // Check if the About section is in view
             if (aboutPosition <= viewportHeight) {
-                headerInfo.classList.add('fixed');
-                buttonGroup.classList.add('fixed');
-            } else {
-                headerInfo.classList.remove('fixed');
-                buttonGroup.classList.remove('fixed');
-            }
-
-            // Hide the header info when at the top of the page
-            if (window.scrollY === 0) {
-                headerInfo.classList.remove('fixed');
-                buttonGroup.classList.remove('fixed');
+                // Fix the header and button group at the top
+                const fixedHeader = document.createElement('div');
+                fixedHeader.className = 'fixed-header';
+                fixedHeader.innerHTML = ` 
+                    <div class="header-info">${headerInfo.innerHTML}</div>
+                    <div class="button-group">${buttonGroup.innerHTML}</div>
+                `;
+                document.body.insertBefore(fixedHeader, document.body.firstChild);
+                headerInfo.style.display = 'none'; // Hide original header info
+                buttonGroup.style.display = 'none'; // Hide original button group
+            } else if (window.scrollY === 0) {
+                // Show original header info and button group when at the top
+                const fixedHeaders = document.querySelector('.fixed-header');
+                if (fixedHeaders) {
+                    fixedHeaders.remove(); // Remove fixed header if present
+                }
+                headerInfo.style.display = 'block'; // Show original header info
+                buttonGroup.style.display = 'flex'; // Show original button group
             }
         });
 
