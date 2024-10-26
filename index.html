@@ -36,9 +36,7 @@
 
         /* Button styling */
         .button-group {
-            position: absolute; /* Positioning the button group */
-            top: 20px;
-            right: 20px;
+            margin-top: 20px; /* Space out buttons from header */
             transition: transform 0.3s ease; /* Add smooth transition */
         }
         
@@ -107,10 +105,6 @@
 
         /* Positioning the name and profession */
         .header-info {
-            position: absolute; /* Positioning the header info */
-            top: 20px;
-            left: 20px;
-            text-align: left; /* Align text to the left */
             transition: transform 0.3s ease; /* Add smooth transition */
         }
 
@@ -120,15 +114,17 @@
             top: 20px;
             left: 20px;
             right: 20px; /* Align buttons in the same fixed position */
+            z-index: 10; /* Ensure it stays above other elements */
         }
 
-        .fixed .button-group {
-            right: 20px; /* Keep buttons in the top right corner */
-        }
-
-        /* Hide header info when at the top */
-        .hidden {
+        .fixed .header-info {
             transform: translateY(-100%);
+        }
+        
+        .fixed .button-group {
+            position: fixed;
+            top: 20px;
+            right: 20px; /* Keep buttons in the top right corner */
         }
     </style>
 </head>
@@ -215,7 +211,7 @@
                 buttonGroup.classList.remove('fixed');
             }
 
-            // Hide the header when at the top of the page
+            // Hide the header info when at the top of the page
             if (window.scrollY === 0) {
                 headerInfo.classList.remove('fixed');
                 buttonGroup.classList.remove('fixed');
