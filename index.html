@@ -9,12 +9,12 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #2b2b55; /* Dark purple/blue */
+            background-color: #2b2b55;
             color: #fff;
-            scroll-behavior: smooth; /* Enables smooth scrolling */
+            scroll-behavior: smooth;
         }
 
-        /* Home Section Styling */
+        /* Home Section */
         .home {
             text-align: center;
             padding: 50px 20px;
@@ -24,53 +24,14 @@
             justify-content: center;
             position: relative;
             opacity: 1;
-            transition: opacity 0.5s ease; /* Fade transition */
+            transition: opacity 0.5s ease;
         }
 
-        /* Hidden state for fade effect */
         .fade-out {
-            opacity: 0; /* Make element invisible */
+            opacity: 0;
         }
 
-        /* Header styling */
-        .header-info {
-            margin-bottom: 20px;
-        }
-
-        .header-title {
-            font-size: 2.5em;
-            margin: 0.2em 0;
-            display: inline;
-        }
-
-        .header-subtitle {
-            font-size: 1.2em;
-            margin-left: 10px;
-            display: inline;
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .button-group button {
-            font-size: 1.1em;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            background-color: #4a4aed;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .button-group button:hover {
-            background-color: #5e5eff;
-        }
-
-        /* Fixed Mini Header */
+        /* Mini Header */
         .mini-header {
             display: flex;
             justify-content: space-between;
@@ -86,18 +47,18 @@
             z-index: 100;
         }
 
-        /* About section */
-        #about {
+        /* Section Styling */
+        .section {
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             padding: 0 20px;
-            opacity: 0; /* Initially invisible */
-            transition: opacity 0.5s ease; /* Fade transition */
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
 
-        /* Balloon styling */
+        /* Balloon Styling */
         .balloon {
             background-color: rgba(0, 0, 0, 0.6);
             padding: 30px;
@@ -115,7 +76,7 @@
             padding-bottom: 10px;
         }
 
-        /* Subsection styling */
+        /* Experience and Project Layout */
         .section-title {
             font-size: 1.5em;
             margin-top: 20px;
@@ -131,20 +92,55 @@
             margin-top: 5px;
         }
 
-        .experience {
+        .experience, .project {
             margin: 10px 0;
         }
 
-        .experience h3 {
+        .experience h3, .project h3 {
             margin: 5px 0;
             color: #ccc;
             font-size: 1.2em;
         }
 
-        .experience p {
+        .experience p, .project p {
             font-size: 1em;
             line-height: 1.5;
             color: #bbb;
+        }
+
+        /* Contacts Section */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1em;
+            color: #333;
+            width: 100%;
+        }
+
+        .contact-form button {
+            font-size: 1.1em;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4a4aed;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #5e5eff;
+        }
+
+        .error {
+            color: #ff4c4c;
+            font-size: 0.9em;
         }
     </style>
 </head>
@@ -158,8 +154,8 @@
         </div>
         <div class="button-group">
             <button onclick="scrollToSection('about')">About</button>
-            <button onclick="location.href='#projects'">Projects</button>
-            <button onclick="location.href='#contacts'">Contacts</button>
+            <button onclick="scrollToSection('projects')">Projects</button>
+            <button onclick="scrollToSection('contacts')">Contacts</button>
         </div>
     </div>
 
@@ -169,11 +165,10 @@
             <span class="header-title">Francisco Sousa</span>
             <span class="header-subtitle">Software Developer</span>
         </div>
-        
         <div class="button-group">
             <button onclick="scrollToSection('about')">About</button>
-            <button onclick="location.href='#projects'">Projects</button>
-            <button onclick="location.href='#contacts'">Contacts</button>
+            <button onclick="scrollToSection('projects')">Projects</button>
+            <button onclick="scrollToSection('contacts')">Contacts</button>
         </div>
     </div>
 
@@ -181,10 +176,10 @@
     <div id="about" class="section">
         <div class="balloon">
             <h2>About Me</h2>
-
             <!-- Education Section -->
             <div class="education">
                 <h3 class="section-title">Education</h3>
+                <!-- Placeholder education entries -->
                 <div class="experience">
                     <h3>BSc in Computer Games Programming</h3>
                     <p>De Montfort University, UK (2018 - 2021)</p>
@@ -198,60 +193,69 @@
                     <p>Escola Profissional de Imagem, Portugal (2013 - 2016)</p>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Work Experience Section -->
-            <div class="work-experience">
-                <h3 class="section-title">Work Experience</h3>
-                <div class="experience">
-                    <h3>Software Developer</h3>
-                    <p>Wtvision, Lisbon (May 2021 - Present)</p>
-                </div>
-                <div class="experience">
-                    <h3>Assistant Manager</h3>
-                    <p>Bean Gaming Café, Leicester (Oct 2019 - May 2021)</p>
-                </div>
-                <div class="experience">
-                    <h3>Sales Assistant</h3>
-                    <p>Ericeira Surf Shop, Lisbon (Sep 2017 - Sep 2018)</p>
-                </div>
+    <!-- Projects Section -->
+    <div id="projects" class="section">
+        <div class="balloon">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Description of project 1.</p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Description of project 2.</p>
+            </div>
+            <div class="project">
+                <h3>Project 3</h3>
+                <p>Description of project 3.</p>
             </div>
         </div>
     </div>
 
+    <!-- Contacts Section -->
+    <div id="contacts" class="section">
+        <div class="balloon">
+            <h2>Contact Me</h2>
+            <form class="contact-form" onsubmit="validateForm(event)">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="text" id="subject" placeholder="Subject" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                <span class="error" id="error-message"></span>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        const home = document.getElementById('home');
-        const aboutSection = document.getElementById('about');
-        const miniHeader = document.getElementById('mini-header');
-        
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const viewportHeight = window.innerHeight;
-
-            // Detect if the home section is leaving the top view
-            if (scrollY > 50) {
-                home.classList.add('fade-out');
-                miniHeader.style.opacity = 1;
-            } else {
-                home.classList.remove('fade-out');
-                miniHeader.style.opacity = 0;
-            }
-
-            // About section fading in/out
-            const aboutPosition = aboutSection.getBoundingClientRect().top;
-            if (aboutPosition <= viewportHeight && aboutPosition >= 0) {
-                aboutSection.style.opacity = '1';
-            } else if (aboutPosition > viewportHeight && scrollY < home.offsetTop) {
-                aboutSection.style.opacity = '0';
-            }
-        });
-
-        // Custom scroll function for smooth scrolling
+        // Smooth scrolling function
         function scrollToSection(sectionId) {
             const targetSection = document.getElementById(sectionId);
             window.scrollTo({
                 top: targetSection.offsetTop,
                 behavior: 'smooth'
             });
+        }
+
+        // Form validation and error display
+        function validateForm(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const errorMessage = document.getElementById("error-message");
+
+            if (!name || !subject || !email || !message) {
+                errorMessage.textContent = "Please fill in all fields.";
+            } else {
+                errorMessage.textContent = "";
+                alert("Message sent!");
+                // Here, add your email sending functionality.
+            }
         }
     </script>
 </body>
