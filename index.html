@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Francisco Sousa - Software Developer</title>
     <style>
-        /* General body and container styling */
+        /* General body styling */
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #2b2b55; /* Dark and happy purple/blue */
+            margin: 0;
+            padding: 0;
+            background-color: #2b2b55; /* Dark purple/blue */
             color: #fff;
+            scroll-behavior: smooth; /* Enables smooth scrolling */
         }
         .container {
             text-align: center;
+            padding: 50px 20px;
         }
         
-        /* Title styling */
+        /* Header styling */
         h1 {
             font-size: 2.5em;
             margin: 0.2em 0;
@@ -46,18 +45,43 @@
             transform: scale(1.1); /* Zoom effect on hover */
             background-color: #5e5eff;
         }
+
+        /* Section styling */
+        .section {
+            padding: 50px 20px;
+        }
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        .section p {
+            font-size: 1.1em;
+            line-height: 1.5em;
+            max-width: 600px;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Header Section -->
     <div class="container">
         <h1>Francisco Sousa</h1>
         <p>Software Developer</p>
         
         <div class="button-group">
-            <button onclick="location.href='#about'">About</button>
+            <button onclick="document.getElementById('about').scrollIntoView()">About</button>
             <button onclick="location.href='#projects'">Projects</button>
             <button onclick="location.href='#contacts'">Contacts</button>
         </div>
     </div>
+
+    <!-- About Section -->
+    <div id="about" class="section">
+        <h2>About Me</h2>
+        <p><strong>Education:</strong> Bachelor’s Degree in Computer Games Programming from De Montfort University, UK (2018 - 2021). Additional courses in Game Design from World Academy, Portugal, and Musical Production & Technology from Escola Profissional de Imagem, Portugal.</p>
+        <p><strong>Work Experience:</strong> Currently a Software Developer at Wtvision, Lisbon, specializing in augmented reality and graphics engines with a focus on performance optimization. Previous roles include Assistant Manager at Bean Gaming Café, Leicester, and Sales Assistant positions in Lisbon.</p>
+    </div>
+
 </body>
 </html>
