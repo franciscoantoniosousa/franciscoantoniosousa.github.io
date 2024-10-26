@@ -21,8 +21,9 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative; /* Add position relative to the container */
         }
-        
+
         /* Header styling */
         h1 {
             font-size: 2.5em;
@@ -34,6 +35,13 @@
         }
 
         /* Button styling */
+        .button-group {
+            position: absolute; /* Positioning the button group */
+            top: 20px;
+            right: 20px;
+            transition: transform 0.3s ease; /* Add smooth transition */
+        }
+        
         .button-group button {
             font-size: 1.1em;
             padding: 10px 20px;
@@ -96,16 +104,44 @@
             line-height: 1.5;
             color: #bbb;
         }
+
+        /* Positioning the name and profession */
+        .header-info {
+            position: absolute; /* Positioning the header info */
+            top: 20px;
+            left: 20px;
+            text-align: left; /* Align text to the left */
+            transition: transform 0.3s ease; /* Add smooth transition */
+        }
+
+        /* Fixed position for header elements when scrolled */
+        .fixed {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px; /* Align buttons in the same fixed position */
+        }
+
+        .fixed .button-group {
+            right: 20px; /* Keep buttons in the top right corner */
+        }
+
+        /* Hide header info when at the top */
+        .hidden {
+            transform: translateY(-100%);
+        }
     </style>
 </head>
 <body>
 
     <!-- Main Presentation Area -->
     <div class="container">
-        <h1>Francisco Sousa</h1>
-        <p>Software Developer</p>
+        <div class="header-info" id="header-info">
+            <h1>Francisco Sousa</h1>
+            <p>Software Developer</p>
+        </div>
         
-        <div class="button-group">
+        <div class="button-group" id="button-group">
             <button onclick="document.getElementById('about').scrollIntoView()">About</button>
             <button onclick="location.href='#projects'">Projects</button>
             <button onclick="location.href='#contacts'">Contacts</button>
@@ -159,5 +195,32 @@
         </div>
     </div>
 
+    <script>
+        // Get header elements
+        const headerInfo = document.getElementById('header-info');
+        const buttonGroup = document.getElementById('button-group');
+        const aboutSection = document.getElementById('about');
+
+        // Track scrolling behavior
+        window.addEventListener('scroll', () => {
+            const aboutPosition = aboutSection.getBoundingClientRect().top;
+            const viewportHeight = window.innerHeight;
+
+            // Check if the About section is in view
+            if (aboutPosition <= viewportHeight) {
+                headerInfo.classList.add('fixed');
+                buttonGroup.classList.add('fixed');
+            } else {
+                headerInfo.classList.remove('fixed');
+                buttonGroup.classList.remove('fixed');
+            }
+
+            // Hide the header when at the top of the page
+            if (window.scrollY === 0) {
+                headerInfo.classList.remove('fixed');
+                buttonGroup.classList.remove('fixed');
+            }
+        });
+    </script>
 </body>
 </html>
