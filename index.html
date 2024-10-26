@@ -112,13 +112,13 @@
         .fixed {
             position: fixed;
             top: 20px;
-            left: 20px;
-            right: 20px; /* Align buttons in the same fixed position */
+            left: 20px; /* Align header info to the top left */
+            right: 20px; /* Align buttons to the top right */
             z-index: 10; /* Ensure it stays above other elements */
         }
 
         .fixed .header-info {
-            transform: translateY(-100%);
+            transform: translateY(0);
         }
         
         .fixed .button-group {
@@ -224,7 +224,7 @@
             const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY;
             const startPosition = window.scrollY;
             const distance = targetPosition - startPosition;
-            const duration = 1000; // Duration of scroll in milliseconds
+            const duration = 1500; // Duration of scroll in milliseconds (increased duration for slower scroll)
             let startTime = null;
 
             // Animation function
