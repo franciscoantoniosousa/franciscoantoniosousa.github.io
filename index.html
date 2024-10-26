@@ -115,16 +115,15 @@
         /* Fixed position for header elements when scrolled */
         .fixed {
             position: fixed;
-            top: 20px; /* Align header info to the top left */
-            left: 20px; /* Align header info to the top left */
-            right: 20px; /* Align buttons to the top right */
             z-index: 10; /* Ensure it stays above other elements */
         }
 
         .fixed .header-info {
-            transform: translateY(0); /* Adjust header info positioning */
+            top: 20px; /* Align header info to the top left */
+            left: 20px; /* Align header info to the top left */
+            transform: translate(0, 0); /* Reset translation for fixed position */
         }
-        
+
         .fixed .button-group {
             position: fixed;
             top: 20px; /* Keep buttons in the top right corner */
