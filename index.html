@@ -12,62 +12,13 @@
             background-color: #2b2b55; /* Dark purple/blue */
             color: #fff;
             scroll-behavior: smooth; /* Enables smooth scrolling */
+            padding: 20px; /* Added padding for margins */
+            font-size: 1.1em; /* Increased overall font size */
         }
 
-        /* Home Section Styling */
-        .container {
-            text-align: center;
-            padding: 40px 20px; /* Reduced padding */
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            opacity: 1;
-            transition: opacity 1s ease; /* Fade-out timing */
-        }
-
-        /* Header styling */
-        .header-info {
-            margin-bottom: 15px; /* Reduced margin */
-        }
-
-        .header-title {
-            font-size: 2.5em;
-            margin: 0.2em 0;
-            display: inline;
-        }
-
-        .header-subtitle {
-            font-size: 1.2em;
-            margin-left: 10px;
-            display: inline;
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .button-group button {
-            font-size: 1.1em;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            background-color: #4a4aed;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .button-group button:hover {
-            background-color: #5e5eff;
-        }
-
-        /* Persistent Header styling */
+        /* Sticky Header styling */
         .persistent-header {
-            position: fixed;
+            position: sticky; /* Keep it fixed at the top */
             top: 0;
             left: 0;
             width: 100%;
@@ -76,9 +27,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            opacity: 0;
-            transition: opacity 0.5s ease; /* Fade in timing */
             z-index: 1000;
+            opacity: 1; /* Always visible */
         }
 
         .persistent-header .title {
@@ -107,14 +57,54 @@
             background-color: #5e5eff;
         }
 
-        /* Section styling */
+        /* Home Section Styling */
+        .container {
+            text-align: center;
+            padding: 40px 20px; /* Reduced padding */
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            opacity: 1;
+            transition: opacity 1s ease; /* Fade-out timing */
+        }
+
+        .header-info {
+            margin-bottom: 15px; /* Reduced margin */
+        }
+
+        .header-title {
+            font-size: 2.5em;
+            margin: 0.2em 0;
+            display: block; /* Changed to block for line breaks */
+        }
+
+        .header-subtitle {
+            font-size: 1.2em;
+            display: block; /* Changed to block for line breaks */
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px; /* Added spacing between subtitle and buttons */
+        }
+
+        .button-group img {
+            width: 50px; /* Set image size for logo buttons */
+            cursor: pointer;
+        }
+
+        /* Main Section (Combined) */
         .section {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 80vh;
             padding: 20px; /* Consistent padding */
-            margin-top: 0; /* Removes gap between sections */
+            margin-top: 10px; /* Reduced space between sections */
         }
 
         /* Balloon styling */
@@ -125,30 +115,37 @@
             max-width: 90%;
             width: 100%;
             text-align: left;
+            margin-top: 10px; /* Space between balloons */
         }
 
         .balloon h2 {
             font-size: 2em;
             color: #fff;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #4a4aed; /* Updated line color */
-            padding-bottom: 10px;
+            margin-bottom: 10px; /* Reduced margin */
         }
 
         /* Subsection styling */
-        .section-title {
+        .subsection {
+            margin-top: 10px; /* Reduced space between subsections */
+        }
+
+        .subsection-title {
             font-size: 1.5em;
             margin-top: 20px;
             color: #ddd;
+            position: relative;
+            padding-bottom: 10px; /* Added padding for space */
         }
 
-        .section-title::after {
+        .subsection-title::after {
             content: '';
             display: block;
-            width: 50%;
-            height: 2px;
-            background: #4a4aed; /* Updated line color */
-            margin-top: 5px;
+            width: 100%; /* Make line width same as title */
+            height: 2px; /* Fixed height for the line */
+            background: #4a4aed; /* Changed to specified color */
+            position: absolute;
+            bottom: -5px; /* Position it just below the title */
+            left: 0; /* Align it to the left */
         }
 
         .experience {
@@ -167,56 +164,39 @@
             color: #bbb;
         }
 
-        /* Projects Section */
-        .project {
-            display: flex;
-            align-items: center;
-            margin: 20px 0;
-        }
-
-        .project img {
-            max-width: 150px; /* Adjust the size of project images */
-            margin-right: 20px;
-            border-radius: 10px;
-        }
-
-        /* Contact Form Styling */
+        /* Contact styling */
         .contact-form {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 500px;
-            width: 100%;
-            margin: auto; /* Center the contact form */
+            flex: 1; /* Form takes full width */
         }
 
-        .contact-form h3 {
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .contact-form input, .contact-form textarea {
+        /* Form styling */
+        input, textarea {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: none;
+            border: 1px solid #ccc;
             border-radius: 5px;
+            background-color: #2b2b55; /* Match with background color */
+            color: #fff;
         }
 
-        .contact-form button {
+        textarea {
+            resize: none; /* Disable resizing */
+            height: 100px; /* Set a fixed height */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        input[type="submit"] {
             background-color: #4a4aed;
             color: #fff;
             border: none;
-            border-radius: 5px;
-            padding: 10px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        .contact-form button:hover {
+        input[type="submit"]:hover {
             background-color: #5e5eff;
         }
-
     </style>
 </head>
 <body>
@@ -226,6 +206,8 @@
         <span class="title" onclick="scrollToSection('container')">Francisco Sousa - Software Developer</span>
         <div class="persistent-button-group">
             <button onclick="scrollToSection('about')">About</button>
+            <button onclick="scrollToSection('work-experience')">Work Experience</button>
+            <button onclick="scrollToSection('education')">Education</button>
             <button onclick="scrollToSection('projects')">Projects</button>
             <button onclick="scrollToSection('contacts')">Contacts</button>
         </div>
@@ -239,128 +221,95 @@
         </div>
         
         <div class="button-group" id="button-group">
-            <button onclick="scrollToSection('about')">About</button>
-            <button onclick="scrollToSection('projects')">Projects</button>
-            <button onclick="scrollToSection('contacts')">Contacts</button>
+            <img src="logo1.png" alt="Logo 1" onclick="window.open('https://www.example1.com', '_blank')">
+            <img src="logo2.png" alt="Logo 2" onclick="window.open('https://www.example2.com', '_blank')">
         </div>
     </div>
 
-    <!-- About Section -->
-    <div id="about" class="section" style="opacity: 0;">
-        <div class="balloon">
-            <h2>About Me</h2>
+    <!-- Main Section (Combined) -->
+    <div id="main-section" class="section">
 
-            <!-- Work Experience Section -->
-            <div class="work-experience">
-                <h3 class="section-title">Work Experience</h3>
-                <div class="experience">
-                    <h3>Software Developer</h3>
-                    <p>Wtvision, Lisbon (May 2021 - Present)</p>
-                </div>
-                <div class="experience">
-                    <h3>Assistant Manager</h3>
-                    <p>Bean Gaming Café, Leicester (Oct 2019 - May 2021)</p>
-                </div>
-                <div class="experience">
-                    <h3>Sales Assistant</h3>
-                    <p>Ericeira Surf Shop, Lisbon (Sep 2017 - Sep 2018)</p>
-                </div>
+        <!-- About Section -->
+        <div id="about" class="balloon subsection">
+            <h2 class="subsection-title">About Me</h2>
+            <p>Welcome to my personal webpage! I'm a software developer with experience in various technologies and a passion for creating innovative solutions.</p>
+        </div>
+
+        <!-- Work Experience Section -->
+        <div id="work-experience" class="balloon subsection">
+            <h2 class="subsection-title">Work Experience</h2>
+            <div class="experience">
+                <h3>Software Developer</h3>
+                <p>Wtvision, Lisbon (May 2021 - Present)</p>
             </div>
-            
-            <!-- Education Section -->
-            <div class="education">
-                <h3 class="section-title">Education</h3>
-                <div class="experience">
-                    <h3>BSc in Computer Games Programming</h3>
-                    <p>De Montfort University, UK (2018 - 2021)</p>
-                </div>
-                <div class="experience">
-                    <h3>Game Design Course</h3>
-                    <p>World Academy, Portugal (2016 - 2017)</p>
-                </div>
-                <div class="experience">
-                    <h3>Musical Production & Technology</h3>
-                    <p>Escola Profissional de Imagem, Portugal (2013 - 2016)</p>
-                </div>
+            <div class="experience">
+                <h3>Assistant Manager</h3>
+                <p>Bean Gaming Café, Leicester (Oct 2019 - May 2021)</p>
+            </div>
+            <div class="experience">
+                <h3>Sales Assistant</h3>
+                <p>Ericeira Surf Shop, Lisbon (Sep 2017 - Sep 2018)</p>
             </div>
         </div>
-    </div>
 
-    <!-- Projects Section -->
-    <div id="projects" class="section">
-        <div class="balloon">
-            <h2>Projects</h2>
-            <div class="project">
-                <img src="https://via.placeholder.com/150" alt="Project 1">
-                <div>
-                    <h3>Project 1</h3>
-                    <p>Description of project 1.</p>
-                </div>
+        <!-- Education Section -->
+        <div id="education" class="balloon subsection">
+            <h2 class="subsection-title">Education</h2>
+            <div class="experience">
+                <h3>BSc in Computer Games Programming</h3>
+                <p>De Montfort University, UK (2018 - 2021)</p>
             </div>
-            <div class="project">
-                <img src="https://via.placeholder.com/150" alt="Project 2">
-                <div>
-                    <h3>Project 2</h3>
-                    <p>Description of project 2.</p>
-                </div>
+            <div class="experience">
+                <h3>Game Design Course</h3>
+                <p>World Academy, Portugal (2016 - 2017)</p>
             </div>
-            <div class="project">
-                <img src="https://via.placeholder.com/150" alt="Project 3">
-                <div>
-                    <h3>Project 3</h3>
-                    <p>Description of project 3.</p>
-                </div>
+            <div class="experience">
+                <h3>Musical Production & Technology</h3>
+                <p>Escola Profissional de Artes de Albufeira, Portugal (2014 - 2016)</p>
             </div>
         </div>
-    </div>
 
-    <!-- Contact Section -->
-    <div id="contacts" class="section">
-        <div class="contact-form">
-            <h3>Contact Me</h3>
-            <form action="#" method="post">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="4" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+        <!-- Projects Section -->
+        <div id="projects" class="balloon subsection">
+            <h2 class="subsection-title">Projects</h2>
+            <div>
+                <img src="project1.png" alt="Project 1" style="width: 100%;">
+                <h3>Project Title 1</h3>
+                <p>Description of the project.</p>
+            </div>
+            <div>
+                <img src="project2.png" alt="Project 2" style="width: 100%;">
+                <h3>Project Title 2</h3>
+                <p>Description of the project.</p>
+            </div>
+            <div>
+                <img src="project3.png" alt="Project 3" style="width: 100%;">
+                <h3>Project Title 3</h3>
+                <p>Description of the project.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contacts" class="balloon subsection contact-section">
+            <h2 class="subsection-title">Contact Me</h2>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <input type="submit" value="Send Message">
+                </form>
+            </div>
         </div>
     </div>
 
     <script>
-        const container = document.getElementById('container');
-        const aboutSection = document.getElementById('about');
-        const persistentHeader = document.getElementById('persistentHeader');
-        const viewportHeight = window.innerHeight;
-
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const containerBottom = container.getBoundingClientRect().bottom;
-
-            // Fade out the container and fade in the about section
-            if (scrollY > 0) {
-                container.style.opacity = Math.max(0, 1 - (scrollY / (viewportHeight * 0.5)));
-                aboutSection.style.opacity = Math.min(1, (scrollY / (viewportHeight * 0.5)));
-            } else {
-                container.style.opacity = 1; // Reset opacity if scrolling back up
-                aboutSection.style.opacity = 0; // Reset opacity if at top
-            }
-
-            // Show persistent header only when Home section is fully out of view
-            if (containerBottom <= 0) {
-                persistentHeader.style.opacity = 1;
-            } else {
-                persistentHeader.style.opacity = 0;
-            }
-        });
-
-        // Custom scroll function for smooth scrolling
+        // Function to scroll to a section smoothly
         function scrollToSection(sectionId) {
-            const targetSection = document.getElementById(sectionId);
-            window.scrollTo({
-                top: targetSection.offsetTop,
-                behavior: 'smooth'
-            });
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     </script>
 </body>
