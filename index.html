@@ -490,29 +490,6 @@
           section.scrollIntoView({ behavior: "smooth" });
         }
       }
-
-      // Fade in/out effect for the main section
-      const mainSection = document.getElementById("main-section");
-
-      window.addEventListener("scroll", () => {
-        const homeSectionBottom = document
-          .getElementById("container")
-          .getBoundingClientRect().bottom;
-        const viewportHeight = window.innerHeight;
-
-        // Check if the home section is completely out of view
-        if (
-          homeSectionBottom < 0 &&
-          !mainSection.classList.contains("visible")
-        ) {
-          mainSection.classList.add("visible"); // Fade in
-        } else if (
-          homeSectionBottom > viewportHeight &&
-          mainSection.classList.contains("visible")
-        ) {
-          mainSection.classList.remove("visible"); // Fade out
-        }
-      });
     </script>
   </body>
 </html>
