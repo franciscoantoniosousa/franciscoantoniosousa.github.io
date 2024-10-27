@@ -1,382 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Francisco Sousa - Software Developer</title>
     <style>
-        /* General body styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #2b2b55; /* Dark purple/blue */
-            color: #fff;
-            scroll-behavior: smooth; /* Enables smooth scrolling */
-            padding: 20px; /* Added padding for margins */
-            font-size: 1.1em; /* Increased overall font size */
-        }
+      /* General body styling */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #2b2b55; /* Dark purple/blue */
+        color: #fff;
+        scroll-behavior: smooth; /* Enables smooth scrolling */
+        padding: 20px; /* Added padding for margins */
+        font-size: 1.1em; /* Increased overall font size */
+      }
 
-        /* Sticky Header styling */
-        .persistent-header {
-            position: sticky; /* Keep it fixed at the top */
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px 20px;
-            background-color: rgba(43, 43, 85, 0.9);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            opacity: 1; /* Always visible */
-        }
+      /* Sticky Header styling */
+      .persistent-header {
+        position: sticky; /* Keep it fixed at the top */
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 20px;
+        background-color: rgba(43, 43, 85, 0.9);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        opacity: 1; /* Always visible */
+      }
 
-        .persistent-header .title {
-            font-size: 1.5em;
-            cursor: pointer; /* Change cursor to pointer */
-        }
+      .persistent-header .title {
+        font-size: 1.5em;
+        cursor: pointer; /* Change cursor to pointer */
+      }
 
-        .persistent-button-group {
-            display: flex;
-            gap: 10px;
-            margin-right: 10px;
-        }
+      .persistent-button-group {
+        display: flex;
+        gap: 10px;
+        margin-right: 10px;
+      }
 
-        .persistent-button-group button {
-            padding: 8px 16px;
-            font-size: 1em;
-            background-color: #4a4aed;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+      .persistent-button-group button {
+        padding: 8px 16px;
+        font-size: 1em;
+        background-color: #4a4aed;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
 
-        .persistent-button-group button:hover {
-            background-color: #5e5eff;
-        }
+      .persistent-button-group button:hover {
+        background-color: #5e5eff;
+      }
 
-        /* Home Section Styling */
-        .container {
-            text-align: center;
-            padding: 20px; /* Reduced padding to bring sections closer */
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            opacity: 1;
-            transition: opacity 1s ease; /* Fade-out timing */
-        }
+      /* Home Section Styling */
+      .container {
+        text-align: center;
+        padding: 20px; /* Reduced padding to bring sections closer */
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        opacity: 1;
+        transition: opacity 1s ease; /* Fade-out timing */
+      }
 
-        .header-info {
-            margin-bottom: 10px; /* Reduced margin */
-        }
+      .header-info {
+        margin-bottom: 10px; /* Reduced margin */
+      }
 
-        .header-title {
-            font-size: 2.5em;
-            margin: 0.2em 0;
-            display: block; /* Changed to block for line breaks */
-        }
+      .header-title {
+        font-size: 2.5em;
+        margin: 0.2em 0;
+        display: block; /* Changed to block for line breaks */
+      }
 
-        .header-subtitle {
-            font-size: 1.2em;
-            display: block; /* Changed to block for line breaks */
-        }
+      .header-subtitle {
+        font-size: 1.2em;
+        display: block; /* Changed to block for line breaks */
+      }
 
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px; /* Added spacing between subtitle and buttons */
-        }
+      .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px; /* Added spacing between subtitle and buttons */
+      }
 
-        .button-group img {
-            width: 50px; /* Set image size for logo buttons */
-            cursor: pointer;
-        }
+      .button-group img {
+        width: 50px; /* Set image size for logo buttons */
+        cursor: pointer;
+      }
 
-        /* Main Section (Combined) */
-        .section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px; /* Consistent padding */
-            padding-top: 60px; /* Reduced top padding to avoid overlap with header */
-            margin-top: 0; /* Removed top margin to bring sections closer */
-            opacity: 0; /* Initially hidden */
-            transition: opacity 1s ease; /* Changed duration to 1 second for fade transition */
-        }
+      /* Main Section (Combined) */
+      .section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px; /* Consistent padding */
+        padding-top: 60px; /* Reduced top padding to avoid overlap with header */
+        margin-top: 0; /* Removed top margin to bring sections closer */
+        opacity: 0; /* Initially hidden */
+        transition: opacity 1s ease; /* Changed duration to 1 second for fade transition */
+      }
 
-        .section.visible {
-            opacity: 1; /* Fully visible */
-        }
+      .section.visible {
+        opacity: 1; /* Fully visible */
+      }
 
-        /* Balloon styling */
-        .balloon {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 90%;
-            width: 100%;
-            text-align: left;
-            margin-top: 10px; /* Space between balloons */
-        }
+      /* Balloon styling */
+      .balloon {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 30px;
+        border-radius: 15px;
+        max-width: 90%;
+        width: 100%;
+        text-align: left;
+        margin-top: 10px; /* Space between balloons */
+      }
 
-        .balloon h2 {
-            font-size: 2em;
-            color: #fff;
-            margin-bottom: 10px; /* Reduced margin */
-        }
+      .balloon h2 {
+        font-size: 2em;
+        color: #fff;
+        margin-bottom: 10px; /* Reduced margin */
+      }
 
-        /* Subsection styling */
-        .subsection {
-            margin-top: 10px; /* Reduced space between subsections */
-        }
+      /* Subsection styling */
+      .subsection {
+        margin-top: 10px; /* Reduced space between subsections */
+      }
 
-        .subsection-title {
-            font-size: 1.5em;
-            margin-top: 20px;
-            color: #ddd;
-            position: relative;
-            padding-bottom: 10px; /* Added padding for space */
-        }
+      .subsection-title {
+        font-size: 1.5em;
+        margin-top: 20px;
+        color: #ddd;
+        position: relative;
+        padding-bottom: 10px; /* Added padding for space */
+      }
 
-        .subsection-title::after {
-            content: '';
-            display: block;
-            width: 100%; /* Make line width same as title */
-            height: 2px; /* Fixed height for the line */
-            background: #4a4aed; /* Changed to specified color */
-            position: absolute;
-            bottom: -5px; /* Position it just below the title */
-            left: 0; /* Align it to the left */
-        }
+      .subsection-title::after {
+        content: "";
+        display: block;
+        width: 100%; /* Make line width same as title */
+        height: 2px; /* Fixed height for the line */
+        background: #4a4aed; /* Changed to specified color */
+        position: absolute;
+        bottom: -5px; /* Position it just below the title */
+        left: 0; /* Align it to the left */
+      }
 
-        .experience {
-            margin: 10px 0; /* Reduced space between experiences */
-            margin-top: 5px; /* Added small top margin */
-        }
+      .experience {
+        margin: 10px 0; /* Reduced space between experiences */
+        margin-top: 5px; /* Added small top margin */
+      }
 
-        .experience h3 {
-            margin: 5px 0;
-            color: #ccc;
-            font-size: 1.2em;
-        }
+      .experience h3 {
+        margin: 5px 0;
+        color: #ccc;
+        font-size: 1.2em;
+      }
 
-        .experience p {
-            font-size: 1em;
-            line-height: 1.5;
-            color: #bbb;
-        }
+      .experience p {
+        font-size: 1em;
+        line-height: 1.5;
+        color: #bbb;
+      }
 
-        /* Projects Section */
-       .project {
-            display: flex;
-            /* Use flexbox for layout */
-            justify-content: space-between;
-            /* Space between image and details */
-            margin: 10px auto;
-            /* Center project */
-            padding: 10px;
-            border-bottom: 1px solid #4C566A;
-            /* Divider */
-            width: 90%;
-            /* Adjusted width for better centering */
-        }
+      /* Projects Section */
+      .project {
+        display: flex;
+        /* Use flexbox for layout */
+        justify-content: space-between;
+        /* Space between image and details */
+        margin: 10px auto;
+        /* Center project */
+        padding: 10px;
+        border-bottom: 1px solid #4c566a;
+        /* Divider */
+        width: 90%;
+        /* Adjusted width for better centering */
+      }
 
-          .project-left {
-            flex: 0 0 30%;
-            /* Fixed width for time */
-            text-align: left;
-            color: #88C0D0;
-            /* Time color */
-        }
+      .project-left {
+        flex: 0 0 30%;
+        /* Fixed width for time */
+        text-align: left;
+        color: #88c0d0;
+        /* Time color */
+      }
 
-           /* Add styles for the project images */
-        .project-img {
-            min-width: 70px;
-            /* Set a fixed width */
-            width: 70%;
-            height: auto;
-            /* Maintain aspect ratio */
-            border-radius: 5px;
-            /* Optional: add rounded corners */
-        }
-        
-        .project-details {
-            flex: 1;
-            /* Take remaining space */
-            text-align: left;
-        }
-        
-        .tech-label {
-            display: block;
-            /* Ensure it takes a new line */
-            margin-top: 10px;
-            /* Add some space above */
-            font-weight: bold;
-            /* Make it bold */
-            color: #88C0D0;
-            /* Match the color with the theme */
-        }
+      /* Add styles for the project images */
+      .project-img {
+        min-width: 70px;
+        /* Set a fixed width */
+        width: 70%;
+        height: auto;
+        /* Maintain aspect ratio */
+        border-radius: 5px;
+        /* Optional: add rounded corners */
+      }
 
-        /* Contact styling */
-        .contact-form {
-            flex: 1; /* Form takes full width */
-        }
+      .project-details {
+        flex: 1;
+        /* Take remaining space */
+        text-align: left;
+      }
 
-        /* Form styling */
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #2b2b55; /* Match with background color */
-            color: #fff;
-        }
+      .tech-label {
+        display: block;
+        /* Ensure it takes a new line */
+        margin-top: 10px;
+        /* Add some space above */
+        font-weight: bold;
+        /* Make it bold */
+        color: #88c0d0;
+        /* Match the color with the theme */
+      }
 
-        textarea {
-            resize: none; /* Disable resizing */
-            height: 100px; /* Set a fixed height */
-            overflow-y: auto; /* Enable vertical scrolling */
-        }
+      /* Contact styling */
+      .contact-form {
+        flex: 1; /* Form takes full width */
+      }
 
-        input[type="submit"] {
-            background-color: #4a4aed;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+      /* Form styling */
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #2b2b55; /* Match with background color */
+        color: #fff;
+      }
 
-        input[type="submit"]:hover {
-            background-color: #5e5eff;
-        }
+      textarea {
+        resize: none; /* Disable resizing */
+        height: 100px; /* Set a fixed height */
+        overflow-y: auto; /* Enable vertical scrolling */
+      }
+
+      input[type="submit"] {
+        background-color: #4a4aed;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #5e5eff;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Persistent Header -->
     <div class="persistent-header">
-        <div class="title">Francisco Sousa - Software Developer</div>
-        <div class="persistent-button-group">
-            <button onclick="scrollToSection('about')">About</button>
-            <button onclick="scrollToSection('work-experience')">Work Experience</button>
-            <button onclick="scrollToSection('education')">Education</button>
-            <button onclick="scrollToSection('projects')">Projects</button>
-            <button onclick="scrollToSection('contacts')">Contact</button>
-        </div>
+      <div class="title">Francisco Sousa - Software Developer</div>
+      <div class="persistent-button-group">
+        <button onclick="scrollToSection('about')">About</button>
+        <button onclick="scrollToSection('work-experience')">
+          Work Experience
+        </button>
+        <button onclick="scrollToSection('education')">Education</button>
+        <button onclick="scrollToSection('projects')">Projects</button>
+        <button onclick="scrollToSection('contacts')">Contact</button>
+      </div>
     </div>
 
     <!-- Home Section -->
     <div id="container" class="container">
-        <div>
-            <img src="images/fasa-logo.png" alt="Linkedin" class="project-img">
+      <div class="project-left">
+        <img src="images/fasa-logo.png" alt="Linkedin" class="project-img" />
+      </div>
+      <div>
+        <div class="header-info">
+          <span class="header-title">Francisco Sousa</span>
+          <span class="header-subtitle">Software Developer</span>
         </div>
-        <div>
-            <div class="header-info">
-                <span class="header-title">Francisco Sousa</span>
-                <span class="header-subtitle">Software Developer</span>
-            </div>
-            <div class="button-group">
-                <img src="images/linkedin.png" alt="Linkedin" onclick="window.open('https://www.linkedin.com/in/franciscoalvesdesousa', '_blank')">
-                <img src="images/itchio.png" alt="Itchio" onclick="window.open('https://franciscosousa.itch.io/', '_blank')">
-            </div>
+        <div class="button-group">
+          <img
+            src="images/linkedin.png"
+            alt="Linkedin"
+            onclick="window.open('https://www.linkedin.com/in/franciscoalvesdesousa', '_blank')"
+          />
+          <img
+            src="images/itchio.png"
+            alt="Itchio"
+            onclick="window.open('https://franciscosousa.itch.io/', '_blank')"
+          />
         </div>
+      </div>
     </div>
 
     <!-- Main Section -->
     <div id="main-section" class="section">
-        <!-- About Section -->
-        <div id="about" class="balloon subsection">
-            <h2 class="subsection-title">About Me</h2>
-            <p>I am a passionate software developer with experience in various technologies...</p>
-        </div>
+      <!-- About Section -->
+      <div id="about" class="balloon subsection">
+        <h2 class="subsection-title">About Me</h2>
+        <p>
+          I am a passionate software developer with experience in various
+          technologies...
+        </p>
+      </div>
 
-        <!-- Work Experience Section -->
-        <div id="work-experience" class="balloon subsection">
-            <h2 class="subsection-title">Work Experience</h2>
-            <div class="experience">
-                <h3>Intern at ABC Inc</h3>
-                <p>Assisted in software development and testing.</p>
-            </div>
+      <!-- Work Experience Section -->
+      <div id="work-experience" class="balloon subsection">
+        <h2 class="subsection-title">Work Experience</h2>
+        <div class="experience">
+          <h3>Intern at ABC Inc</h3>
+          <p>Assisted in software development and testing.</p>
         </div>
+      </div>
 
-        <!-- Education Section -->
-        <div id="education" class="balloon subsection">
-            <h2 class="subsection-title">Education</h2>
-            <div class="experience">
-                <h3>Bachelor of Science in Computer Science</h3>
-                <p>University of Lisbon, Portugal (2016 - 2020)</p>
-            </div>
-            <div class="experience">
-                <h3>Professional Development in Software Engineering</h3>
-                <p>Instituto de Artes de Albufeira, Portugal (2014 - 2016)</p>
-            </div>
+      <!-- Education Section -->
+      <div id="education" class="balloon subsection">
+        <h2 class="subsection-title">Education</h2>
+        <div class="experience">
+          <h3>Bachelor of Science in Computer Science</h3>
+          <p>University of Lisbon, Portugal (2016 - 2020)</p>
         </div>
-
-        <!-- Projects Section -->        
-         <div id="projects" class="balloon subsection">
-            <h2 class="subsection-title">Side Projects</h2>
-            <div class="project">
-                <div class="project-left">
-                    <a href="https://github.com/franciscoantoniosousa/Sunflower" target="_blank">
-                        <img src="images/engine.png" alt="engine" class="project-img">
-                    </a>
-                </div>
-                <div class="project-details">
-                    <strong>Game Engine - Sunflower</strong><br>
-                    <small>
-                        Peer to peer microservice written in Go, utilizing TCP transport methods for files.
-                        <br> Currently work in progress...
-                    </small>
-                    <!-- Moved technologies to the bottom -->
-                    <small class="tech-label">Technologies: C++, OpenGL, OpenCV, SFML, GLFW, SFML, ImGUI, spdlog</small> <!-- Added class for styling -->
-                </div>
-            </div>
-             </div>
-
-        <!-- Contact Section -->
-        <div id="contacts" class="balloon subsection contact-section">
-            <h2 class="subsection-title">Contact Me</h2>
-            <div class="contact-form">
-                <form action="#" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <input type="submit" value="Send Message">
-                </form>
-            </div>
+        <div class="experience">
+          <h3>Professional Development in Software Engineering</h3>
+          <p>Instituto de Artes de Albufeira, Portugal (2014 - 2016)</p>
         </div>
+      </div>
+
+      <!-- Projects Section -->
+      <div id="projects" class="balloon subsection">
+        <h2 class="subsection-title">Side Projects</h2>
+        <div class="project">
+          <div class="project-left">
+            <a
+              href="https://github.com/franciscoantoniosousa/Sunflower"
+              target="_blank"
+            >
+              <img src="images/engine.png" alt="engine" class="project-img" />
+            </a>
+          </div>
+          <div class="project-details">
+            <strong>Game Engine - Sunflower</strong><br />
+            <small>
+              Peer to peer microservice written in Go, utilizing TCP transport
+              methods for files.
+              <br />
+              Currently work in progress...
+            </small>
+            <!-- Moved technologies to the bottom -->
+            <small class="tech-label"
+              >Technologies: C++, OpenGL, OpenCV, SFML, GLFW, SFML, ImGUI,
+              spdlog</small
+            >
+            <!-- Added class for styling -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div id="contacts" class="balloon subsection contact-section">
+        <h2 class="subsection-title">Contact Me</h2>
+        <div class="contact-form">
+          <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <input type="submit" value="Send Message" />
+          </form>
+        </div>
+      </div>
     </div>
 
     <script>
-        // Function to scroll to a section smoothly
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
+      // Function to scroll to a section smoothly
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
         }
+      }
 
-        // Fade in/out effect for the main section
-        const mainSection = document.getElementById('main-section');
+      // Fade in/out effect for the main section
+      const mainSection = document.getElementById("main-section");
 
-        window.addEventListener('scroll', () => {
-            const homeSectionBottom = document.getElementById('container').getBoundingClientRect().bottom;
-            const viewportHeight = window.innerHeight;
+      window.addEventListener("scroll", () => {
+        const homeSectionBottom = document
+          .getElementById("container")
+          .getBoundingClientRect().bottom;
+        const viewportHeight = window.innerHeight;
 
-            // Check if the home section is completely out of view
-            if (homeSectionBottom < 0 && !mainSection.classList.contains('visible')) {
-                mainSection.classList.add('visible'); // Fade in
-            } else if (homeSectionBottom > viewportHeight && mainSection.classList.contains('visible')) {
-                mainSection.classList.remove('visible'); // Fade out
-            }
-        });
+        // Check if the home section is completely out of view
+        if (
+          homeSectionBottom < 0 &&
+          !mainSection.classList.contains("visible")
+        ) {
+          mainSection.classList.add("visible"); // Fade in
+        } else if (
+          homeSectionBottom > viewportHeight &&
+          mainSection.classList.contains("visible")
+        ) {
+          mainSection.classList.remove("visible"); // Fade out
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
