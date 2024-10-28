@@ -115,7 +115,7 @@
         padding: 20px; /* Consistent padding */
         padding-top: 60px; /* Reduced top padding to avoid overlap with header */
         margin-top: 0; /* Removed top margin to bring sections closer */
-        opacity: 1; /* Initially hidden */
+        opacity: 1;
       }
 
       .section.visible {
@@ -218,6 +218,23 @@
         flex: 1;
         /* Take remaining space */
         text-align: left;
+      }
+
+      .sunflower-details h3,
+      .sunflower-details h4 {
+        color: #ffbf00; /* Example color for headers */
+        margin-bottom: 8px;
+      }
+
+      .sunflower-details ul {
+        padding-left: 20px;
+        list-style: disc;
+      }
+
+      .sunflower-details p,
+      .sunflower-details li {
+        color: #ddd; /* Match text color with your theme */
+        line-height: 1.6;
       }
 
       .tech-label {
@@ -439,20 +456,82 @@
               <img src="images/engine.png" alt="engine" class="project-img" />
             </a>
           </div>
-          <div class="project-details">
-            <strong>Game Engine - Sunflower</strong><br />
-            <small>
-              Peer to peer microservice written in Go, utilizing TCP transport
-              methods for files.
-              <br />
-              Currently work in progress...
-            </small>
-            <!-- Moved technologies to the bottom -->
-            <small class="tech-label"
-              >Technologies: C++, OpenGL, OpenCV, SFML, GLFW, SFML, ImGUI,
-              spdlog</small
-            >
-            <!-- Added class for styling -->
+          <!-- Add both 'project-details' and 'sunflower-details' classes here -->
+          <div class="project-details sunflower-details">
+            <h3>🌻 Sunflower Game Engine</h3>
+            <p>
+              <strong>Sunflower</strong> is a lightweight, custom game engine
+              built with a focus on flexibility, performance, and rendering
+              efficiency. This project is currently in active development and
+              serves as both a learning experience and a powerful tool for
+              building 2D/3D applications.
+            </p>
+
+            <h4>🚀 Features</h4>
+            <ul>
+              <li>
+                <strong>Real-time Rendering</strong>: Powered by OpenGL,
+                enabling efficient and flexible rendering for both 2D and 3D
+                graphics.
+              </li>
+              <li>
+                <strong>Math Utilities</strong>: GLM for vector, matrix, and
+                transformation operations.
+              </li>
+              <li>
+                <strong>Window & Input Management</strong>: GLFW for easy window
+                creation and input handling.
+              </li>
+              <li>
+                <strong>Image Processing</strong>: OpenCV integration for image
+                manipulation and loading.
+              </li>
+              <li>
+                <strong>Audio Support</strong>: SFML for sound playback and
+                audio manipulation.
+              </li>
+              <li>
+                <strong>Logging</strong>: spdlog for easy, customizable, and
+                performant logging.
+              </li>
+            </ul>
+
+            <h4>🔧 Technologies Used</h4>
+            <ul>
+              <li>
+                <strong>C++</strong>: Core language for engine architecture.
+              </li>
+              <li>
+                <strong>OpenGL</strong>: Rendering backend for real-time
+                graphics.
+              </li>
+              <li>
+                <strong>GLM</strong>: Mathematics library for graphics
+                applications.
+              </li>
+              <li>
+                <strong>GLFW</strong>: Cross-platform windowing and input
+                management.
+              </li>
+              <li>
+                <strong>SFML</strong>: Simple and fast multimedia library for
+                audio support.
+              </li>
+              <li>
+                <strong>OpenCV</strong>: Image processing and manipulation.
+              </li>
+              <li>
+                <strong>spdlog</strong>: High-performance logging library.
+              </li>
+            </ul>
+
+            <h4>🛠️ Roadmap</h4>
+            <ul>
+              <li>Expand 3D graphics capabilities</li>
+              <li>Implement physics and collision detection</li>
+              <li>Enhance scene management and scripting support</li>
+              <li>Add UI system for in-game menus and HUDs</li>
+            </ul>
           </div>
         </div>
       </div>
