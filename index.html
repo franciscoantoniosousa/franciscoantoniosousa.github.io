@@ -37,7 +37,6 @@
         justify-content: space-between;
         align-items: center;
         z-index: 1000;
-        opacity: 1; /* Always visible */
       }
 
       .persistent-header .title {
@@ -74,9 +73,6 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        position: relative;
-        opacity: 1;
-        transition: opacity 1s ease; /* Fade-out timing */
       }
 
       .header-info {
@@ -114,12 +110,6 @@
         justify-content: center;
         padding: 20px; /* Consistent padding */
         padding-top: 60px; /* Reduced top padding to avoid overlap with header */
-        margin-top: 0; /* Removed top margin to bring sections closer */
-        opacity: 1;
-      }
-
-      .section.visible {
-        opacity: 1; /* Fully visible */
       }
 
       /* Balloon styling */
@@ -183,40 +173,29 @@
       /* Projects Section */
       .project {
         display: flex;
-        /* Use flexbox for layout */
         justify-content: space-between;
-        /* Space between image and details */
-        margin: 10px auto;
-        /* Center project */
+        margin: 10px auto; /* Center project */
         padding: 10px;
-        border-bottom: 1px solid #4c566a;
-        /* Divider */
-        width: 90%;
-        /* Adjusted width for better centering */
+        border-bottom: 1px solid #4c566a; /* Divider */
+        width: 90%; /* Adjusted width for better centering */
       }
 
       .project-left {
-        flex: 0 0 30%;
-        /* Fixed width for time */
+        flex: 0 0 30%; /* Fixed width for time */
         text-align: left;
-        color: #88c0d0;
-        /* Time color */
+        color: #88c0d0; /* Time color */
       }
 
       /* Add styles for the project images */
       .project-img {
-        min-width: 70px;
-        /* Set a fixed width */
+        min-width: 70px; /* Set a fixed width */
         width: 70%;
-        height: auto;
-        /* Maintain aspect ratio */
-        border-radius: 5px;
-        /* Optional: add rounded corners */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 5px; /* Optional: add rounded corners */
       }
 
       .project-details {
-        flex: 1;
-        /* Take remaining space */
+        flex: 1; /* Take remaining space */
         text-align: left;
       }
 
@@ -237,22 +216,19 @@
         list-style: disc;
       }
 
-      .details p,
       .details li {
         color: #ddd; /* Match text color with your theme */
-        line-height: 1.4;   
-        font-size: 0.8em; 
+        line-height: 1.4;
+        font-size: 0.8em;
       }
 
-      .tech-label {
-        display: block;
-        /* Ensure it takes a new line */
-        margin-top: 10px;
-        /* Add some space above */
-        font-weight: bold;
-        /* Make it bold */
-        color: #88c0d0;
-        /* Match the color with the theme */
+      .details p {
+        color: #ddd; /* Match text color with your theme */
+        line-height: 1.4;
+        font-size: 0.8em;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 10px;
       }
 
       /* Contact styling */
@@ -338,134 +314,209 @@
       <!-- About Section -->
       <div id="about" class="balloon subsection">
         <h2 class="subsection-title">About Me</h2>
-        <p>
-          Highly motivated and skilled Software Developer with over three years
-          of professional experience, specializing in augmented reality,
-          graphics engines, and performance-critical broadcasting
-          applications.<br />
-          Proficient in languages such as C# and C++, I have a strong background
-          in developing and optimizing complex software solutions. <br />
-          I’m passionate about improving existing systems and creating
-          innovative tools, as evidenced by my personal project—building a
-          graphics/game engine from scratch. I thrive in fast-paced
-          environments, possess strong problem-solving skills, and am
-          continuously expanding my knowledge in cutting-edge technologies like
-          Vulkan, OpenCV, and neural networks.
-        </p>
+        <div class="details">
+          <h4>📓 Profile</h4>
+          <p>
+            I am a passionate Software Developer with over three years of
+            experience in augmented reality, graphics engines, and
+            performance-critical applications. With an educational background in
+            game development, I am eager to further explore this exciting field.
+            Proficient in C#, C++, and Vulkan, I thrive on optimization and
+            innovation, continuously seeking to build efficient systems and
+            tackle complex technical challenges. I believe that the world of
+            gaming holds endless possibilities, and I’m excited to contribute to
+            it!
+          </p>
+
+          <h4>🌟 Key Skills</h4>
+          <ul>
+            <li>
+              <strong>Software Development</strong>: Skilled in building
+              performance-critical applications.
+            </li>
+            <li>
+              <strong>Augmented Reality</strong>: Experience in developing AR
+              applications.
+            </li>
+            <li>
+              <strong>Graphics Engines</strong>: Proficient in designing and
+              optimizing graphics engines.
+            </li>
+            <li>
+              <strong>Programming Languages</strong>: Experienced in C#, C++,
+              and Vulkan.
+            </li>
+            <li>
+              <strong>Optimization</strong>: Strong focus on optimizing systems
+              for performance and efficiency.
+            </li>
+            <li>
+              <strong>Problem Solving</strong>: Passionate about tackling
+              complex technical challenges.
+            </li>
+          </ul>
+
+          <h4>🎯 Objectives</h4>
+          <ul>
+            <li>
+              To continuously improve my skills in existing technologies while
+              learning new tools to enhance my development capabilities.
+            </li>
+            <li>
+              To leverage my expertise to create innovative and engaging gaming
+              experiences that captivate players.
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- Work Experience Section -->
       <div id="work-experience" class="balloon subsection">
-     <h2 class="subsection-title">Work Experience</h2>
-          <div class="details">
-            <h3>Wtvision (2021 - Present)</h3>
-            <!-- Highlights Section with icons and bullets -->
-            <h4>🔹 Key Contributions</h4>
-            <ul>
-              <li>
-                <strong>Performance Optimization</strong>: Achieved robust
-                performance improvements in an augmented reality field tracking
-                application, enhancing real-time responsiveness.
-              </li>
-              <li>
-                <strong>Graphics Engine Enhancement</strong>: Improved the
-                graphics engine’s functionality by optimizing DirectX and Vulkan
-                integration for better frame rates.
-              </li>
-              <li>
-                <strong>Vision Algorithms</strong>: Developed vision algorithms
-                and neural networks using OpenCV and Vulkan, achieving greater
-                accuracy in augmented reality displays.
-              </li>
-              <li>
-                <strong>Continuous Video Processing</strong>: Managed Blackmagic
-                boards and implemented multithreading for seamless broadcasting.
-              </li>
-              <li>
-                <strong>CI Task Streamlining</strong>: Minimized versioning
-                issues and improved team collaboration by streamlining CI tasks
-                with GitLab.
-              </li>
-            </ul>
+        <h2 class="subsection-title">Work Experience</h2>
+        <div class="details">
+          <h3>Wtvision (2021 - Present)</h3>
+          <!-- Highlights Section with icons and bullets -->
+          <h4>🔹 Key Contributions</h4>
+          <ul>
+            <li>
+              <strong>Performance Optimization</strong>: Achieved robust
+              performance improvements in an augmented reality field tracking
+              application, enhancing real-time responsiveness.
+            </li>
+            <li>
+              <strong>Graphics Engine Enhancement</strong>: Improved the
+              graphics engine’s functionality by optimizing DirectX and Vulkan
+              integration for better frame rates.
+            </li>
+            <li>
+              <strong>Vision Algorithms</strong>: Developed vision algorithms
+              and neural networks using OpenCV and Vulkan, achieving greater
+              accuracy in augmented reality displays.
+            </li>
+            <li>
+              <strong>Continuous Video Processing</strong>: Managed Blackmagic
+              boards and implemented multithreading for seamless broadcasting.
+            </li>
+            <li>
+              <strong>CI Task Streamlining</strong>: Minimized versioning issues
+              and improved team collaboration by streamlining CI tasks with
+              GitLab.
+            </li>
+          </ul>
 
-            <!-- Technologies Section with a tech label and bullet points -->
-            <h4>🔧 Technologies Used</h4>
-            <ul>
-              <li>
-                <strong>.Net Framework 4.8</strong>: Core development platform
-              </li>
-              <li>
-                <strong>C# and C++</strong>: Programming languages for project
-                development
-              </li>
-              <li><strong>WPF</strong>: User interface framework</li>
-              <li>
-                <strong>DirectX and Vulkan</strong>: Graphics APIs for
-                high-performance rendering
-              </li>
-              <li>
-                <strong>OpenCV</strong>: Computer vision library for tracking
-                and image processing
-              </li>
-              <li><strong>TypeScript</strong>: For frontend components</li>
-            </ul>
-          </div>
+          <!-- Technologies Section with a tech label and bullet points -->
+          <h4>🔧 Technologies Used</h4>
+          <ul>
+            <li>
+              <strong>.Net Framework 4.8</strong>: Core development platform
+            </li>
+            <li>
+              <strong>C# and C++</strong>: Programming languages for project
+              development
+            </li>
+            <li><strong>WPF</strong>: User interface framework</li>
+            <li>
+              <strong>DirectX and Vulkan</strong>: Graphics APIs for
+              high-performance rendering
+            </li>
+            <li>
+              <strong>OpenCV</strong>: Computer vision library for tracking and
+              image processing
+            </li>
+            <li><strong>TypeScript</strong>: For frontend components</li>
+          </ul>
         </div>
       </div>
 
       <!-- Education Section -->
       <div id="education" class="balloon subsection">
         <h2 class="subsection-title">Education</h2>
-        <div class="experience">
-          <h3>Bachelor Degree in Computer Games Programming</h3>
-          <p>De Montfort University, UK (2018 - 2021)</p>
+        <div class="details">
+          <h3>🎓 Bachelor Degree in Computer Games Programming</h3>
+          <h4>De Montfort University, UK (2018 - 2021)</h4>
+          <p>
+            During my studies, I gained comprehensive knowledge and practical
+            skills in various aspects of game development, including design,
+            programming, and advanced rendering techniques.
+          </p>
+          <h4>📚 Key Learning Areas</h4>
           <ul>
             <li>
-              Game Design & Development: Basics of game architecture, design,
-              and implementation.
+              <strong>Game Design & Development</strong>: Basics of game
+              architecture, design, and implementation.
             </li>
             <li>
-              Markup Languages and Scripting: Scripting with Python and
-              JavaScript; data manipulation.
+              <strong>Markup Languages and Scripting</strong>: Scripting with
+              Python and JavaScript; data manipulation.
             </li>
             <li>
-              Maths & Computer Systems: Fundamentals of computer architecture
-              and essential math concepts.
+              <strong>Maths & Computer Systems</strong>: Fundamentals of
+              computer architecture and essential math concepts.
             </li>
             <li>
-              3D Modelling & Shader Fundamentals: Interactive 3D modelling and
-              rendering techniques.
+              <strong>3D Modelling & Shader Fundamentals</strong>: Interactive
+              3D modelling and rendering techniques.
             </li>
             <li>
-              Mobile Games and AI for Simulation: Mobile game development and AI
-              applications in games.
+              <strong>Mobile Games and AI for Simulation</strong>: Mobile game
+              development and AI applications in games.
             </li>
             <li>
-              Applied Mechanics and Progressive Game Engines: Rigid body motion,
-              collision detection, and game engines.
+              <strong>Applied Mechanics and Progressive Game Engines</strong>:
+              Rigid body motion, collision detection, and game engines.
             </li>
             <li>
-              Production Level C++: Advanced C++ programming in a professional
-              context.
+              <strong>Production Level C++</strong>: Advanced C++ programming in
+              a professional context.
             </li>
             <li>
-              Advanced Game Engine Application: In-depth use of
+              <strong>Advanced Game Engine Application</strong>: In-depth use of
               industry-standard game engines.
             </li>
             <li>
-              Advanced Shader Programming: Techniques in modern 3D rendering and
-              shader programming.
+              <strong>Advanced Shader Programming</strong>: Techniques in modern
+              3D rendering and shader programming.
             </li>
             <li>
-              Performant Rendering with C++: Performance optimization in
-              rendering applications.
+              <strong>Performant Rendering with C++</strong>: Performance
+              optimization in rendering applications.
             </li>
           </ul>
-          <small class="tech-label"
-            >Skills Developed: Game design principles, programming proficiency
-            (C++, Python, JavaScript), 3D modelling, AI in games, project
-            management, and teamwork.</small
-          >
+          <h4>🔧 Technologies Used</h4>
+          <ul>
+            <li>
+              <strong>C++</strong>: Core programming language for the course,
+              foundational for game development and engine architecture.
+            </li>
+            <li>
+              <strong>OpenGL</strong>: Rendering backend for real-time graphics.
+            </li>
+            <li><strong>OpenCV</strong>: Image processing and manipulation.</li>
+            <li>
+              <strong>GLM</strong>: Mathematics library for graphics
+              applications.
+            </li>
+            <li>
+              <strong>GLFW</strong>: Cross-platform windowing and input
+              management.
+            </li>
+            <li>
+              <strong>C#</strong>: Programming language used in various projects
+              and Unity.
+            </li>
+            <li>
+              <strong>Unity</strong>: Game development engine for creating
+              interactive experiences.
+            </li>
+            <li>
+              <strong>SFML</strong>: Simple and fast multimedia library for
+              audio support.
+            </li>
+            <li>
+              <strong>Maya3D</strong>: 3D modelling and animation software.
+            </li>
+            <li><strong>Box2D</strong>: 2D physics engine for games.</li>
+          </ul>
         </div>
       </div>
 
