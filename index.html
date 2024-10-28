@@ -220,26 +220,28 @@
         text-align: left;
       }
 
-      .sunflower-details h3 {
+      .details h3 {
         color: #ffbf00; /* Example color for headers */
         margin-bottom: 5px;
         font-size: 1.2em;
       }
 
-      .sunflower-details h4 {
+      .details h4 {
         color: #ffbf00; /* Example color for headers */
         margin-bottom: 8px;
       }
 
-      .sunflower-details ul {
-        padding-left: 20px;
+      .details ul {
+        padding-left: 40px;
+        padding-right: 10px;
         list-style: disc;
       }
 
-      .sunflower-details p,
-      .sunflower-details li {
+      .details p,
+      .details li {
         color: #ddd; /* Match text color with your theme */
-        line-height: 1.6;
+        line-height: 1.4;   
+        font-size: 0.8em; 
       }
 
       .tech-label {
@@ -354,42 +356,60 @@
 
       <!-- Work Experience Section -->
       <div id="work-experience" class="balloon subsection">
-        <h2 class="subsection-title">Work Experience</h2>
-        <div class="experience">
-          <h3>Wtvision (2021 - Present)</h3>
-          <ul>
-            <li>
-              Achieved robust performance improvements in an augmented reality
-              field tracking application, reducing processing times and
-              enhancing real-time responsiveness.
-            </li>
-            <li>
-              Boosted the graphics engine’s functionality, enabling smoother
-              operation under highperformance demands with DirectX and Vulkan
-              integration, resulting in optimized frame rates and consistent
-              output.
-            </li>
-            <li>
-              Advanced field and player tracking capabilities by developing
-              vision algorithms and neural networks with OpenCV and Vulkan,
-              achieving greater accuracy and stability in augmented reality
-              displays.
-            </li>
-            <li>
-              Ensured reliable broadcasting performance by managing Blackmagic
-              boards and implementing multithreading, supporting continuous
-              video processing and uninterrupted output quality.
-            </li>
-            <li>
-              Strengthened software consistency across projects by streamlining
-              CI tasks with GitLab, minimizing versioning issues and improving
-              team collaboration.
-            </li>
-          </ul>
-          <small class="tech-label"
-            >Technologies: .Net FrameWork 4.8, C#, C++, WPF, DirectX, TS,
-            Vulkan, OpenCV.</small
-          >
+     <h2 class="subsection-title">Work Experience</h2>
+          <div class="details">
+            <h3>Wtvision (2021 - Present)</h3>
+            <!-- Highlights Section with icons and bullets -->
+            <h4>🔹 Key Contributions</h4>
+            <ul>
+              <li>
+                <strong>Performance Optimization</strong>: Achieved robust
+                performance improvements in an augmented reality field tracking
+                application, enhancing real-time responsiveness.
+              </li>
+              <li>
+                <strong>Graphics Engine Enhancement</strong>: Improved the
+                graphics engine’s functionality by optimizing DirectX and Vulkan
+                integration for better frame rates.
+              </li>
+              <li>
+                <strong>Vision Algorithms</strong>: Developed vision algorithms
+                and neural networks using OpenCV and Vulkan, achieving greater
+                accuracy in augmented reality displays.
+              </li>
+              <li>
+                <strong>Continuous Video Processing</strong>: Managed Blackmagic
+                boards and implemented multithreading for seamless broadcasting.
+              </li>
+              <li>
+                <strong>CI Task Streamlining</strong>: Minimized versioning
+                issues and improved team collaboration by streamlining CI tasks
+                with GitLab.
+              </li>
+            </ul>
+
+            <!-- Technologies Section with a tech label and bullet points -->
+            <h4>🔧 Technologies Used</h4>
+            <ul>
+              <li>
+                <strong>.Net Framework 4.8</strong>: Core development platform
+              </li>
+              <li>
+                <strong>C# and C++</strong>: Programming languages for project
+                development
+              </li>
+              <li><strong>WPF</strong>: User interface framework</li>
+              <li>
+                <strong>DirectX and Vulkan</strong>: Graphics APIs for
+                high-performance rendering
+              </li>
+              <li>
+                <strong>OpenCV</strong>: Computer vision library for tracking
+                and image processing
+              </li>
+              <li><strong>TypeScript</strong>: For frontend components</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -462,7 +482,7 @@
             </a>
           </div>
           <!-- Add both 'project-details' and 'sunflower-details' classes here -->
-          <div class="project-details sunflower-details">
+          <div class="details">
             <h3>🌻 Sunflower Game Engine</h3>
             <p>
               <strong>Sunflower</strong> is a lightweight, custom game engine
